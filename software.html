@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Software & Tools — TALL and bibliometrix by Luca D'Aniello.">
+    <title>Software | Luca D'Aniello</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="inner-page">
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Luca D'Aniello</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="research.html" class="nav-link">Research</a></li>
+                <li><a href="software.html" class="nav-link active">Software</a></li>
+                <li><a href="teaching.html" class="nav-link">Teaching</a></li>
+                <li><a href="outreach.html" class="nav-link">Outreach</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header-bg"></div>
+        <div class="container">
+            <span class="page-tag reveal-up">Open Source</span>
+            <h1 class="page-title reveal-up delay-1">Software &amp; Tools</h1>
+        </div>
+    </header>
+
+    <!-- TALL -->
+    <section class="section">
+        <div class="container">
+            <div class="software-feature reveal-up">
+                <div class="sf-header">
+                    <div class="sf-icon tall-color"><i class="fas fa-file-alt"></i></div>
+                    <div>
+                        <h2 class="sf-name">TALL</h2>
+                        <p class="sf-tagline">Text Analysis for ALL</p>
+                        <div class="software-pills">
+                            <span class="pill"><i class="fab fa-r-project"></i> R Package</span>
+                            <span class="pill"><i class="fas fa-laptop-code"></i> Shiny Web App</span>
+                            <span class="pill"><i class="fas fa-download"></i> 3,000+ CRAN installs</span>
+                            <span class="pill"><i class="fas fa-balance-scale"></i> MIT License</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sf-body">
+                    <p class="lead">TALL is an interactive R package and Shiny web application for accessible quantitative and qualitative text analysis — from topic modeling to social media mining — without requiring any coding skills.</p>
+                    <p>Co-authored with M. Aria, M. Spano, C. Cuccurullo, and C. Misuraca, TALL was officially released on CRAN in February 2025. It offers a user-friendly graphical interface for exploring, modeling, and visualizing textual data, incorporating the most recent methods proposed in the literature. With over 3,000 installations, it has attracted growing interest in the scientific community for accessible, robust, and transparent text analysis solutions.</p>
+                    <p>TALL supports a wide range of analytical tasks: frequency analysis, sentiment analysis, topic modeling (LDA, STM), thematic maps, network analysis of co-occurrences, and social media analytics. It is designed for researchers, students, and professionals who need to perform rigorous text analysis without programming expertise.</p>
+
+                    <div class="sf-features">
+                        <div class="sf-feature">
+                            <i class="fas fa-chart-bar"></i>
+                            <div>
+                                <strong>Text Exploration</strong>
+                                <p>Frequency analysis, word clouds, n-gram analysis, and corpus statistics</p>
+                            </div>
+                        </div>
+                        <div class="sf-feature">
+                            <i class="fas fa-brain"></i>
+                            <div>
+                                <strong>Topic Modeling</strong>
+                                <p>LDA and STM topic models with interactive visualization and parameter tuning</p>
+                            </div>
+                        </div>
+                        <div class="sf-feature">
+                            <i class="fas fa-project-diagram"></i>
+                            <div>
+                                <strong>Semantic Networks</strong>
+                                <p>Co-occurrence networks and thematic clustering of textual data</p>
+                            </div>
+                        </div>
+                        <div class="sf-feature">
+                            <i class="fab fa-twitter"></i>
+                            <div>
+                                <strong>Social Media Mining</strong>
+                                <p>Import and analyse social media data from multiple platforms</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sf-actions">
+                        <a href="https://www.tall-app.com" target="_blank" rel="noopener" class="btn btn-primary">
+                            <i class="fas fa-globe"></i> Visit tall-app.com
+                        </a>
+                        <a href="https://doi.org/10.1016/j.softx.2026.102590" target="_blank" rel="noopener" class="btn btn-outline">
+                            <i class="fas fa-file-alt"></i> Read the paper (SoftwareX 2026)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- bibliometrix -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="software-feature reveal-up">
+                <div class="sf-header">
+                    <div class="sf-icon biblio-color"><i class="fas fa-project-diagram"></i></div>
+                    <div>
+                        <h2 class="sf-name">bibliometrix</h2>
+                        <p class="sf-tagline">Comprehensive Scientometric Analysis in R</p>
+                        <div class="software-pills">
+                            <span class="pill"><i class="fab fa-r-project"></i> R Package</span>
+                            <span class="pill"><i class="fas fa-globe"></i> Adopted worldwide</span>
+                            <span class="pill"><i class="fab fa-osi"></i> Open Source</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sf-body">
+                    <p class="lead">bibliometrix is a comprehensive open-source R tool for quantitative research in scientometrics and bibliometrics, including performance analysis and science mapping. It is one of the most widely used tools for scientometric analysis globally.</p>
+                    <p>Originally developed by M. Aria &amp; C. Cuccurullo (2017), bibliometrix provides a framework for bibliometric data management and analysis. I am a member of the core development team since 2020, contributing to the expansion of its analytical capabilities and the development of biblioshiny, its interactive Shiny interface.</p>
+                    <p>bibliometrix and its Shiny counterpart, Biblioshiny, are used by researchers in more than 150 countries. They support systematic literature reviews, co-citation analysis, keyword co-occurrence analysis, historiographic analysis, thematic mapping, and science mapping at a global scale.</p>
+
+                    <div class="sf-features">
+                        <div class="sf-feature">
+                            <i class="fas fa-map"></i>
+                            <div>
+                                <strong>Science Mapping</strong>
+                                <p>Keyword co-occurrence, co-citation, and bibliographic coupling analysis</p>
+                            </div>
+                        </div>
+                        <div class="sf-feature">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <div>
+                                <strong>Performance Analysis</strong>
+                                <p>Productivity and impact indicators for authors, journals, institutions, and countries</p>
+                            </div>
+                        </div>
+                        <div class="sf-feature">
+                            <i class="fas fa-book"></i>
+                            <div>
+                                <strong>Systematic Reviews</strong>
+                                <p>Support for PRISMA-compliant systematic literature reviews with automated tools</p>
+                            </div>
+                        </div>
+                        <div class="sf-feature">
+                            <i class="fas fa-desktop"></i>
+                            <div>
+                                <strong>Biblioshiny Interface</strong>
+                                <p>Interactive no-code Shiny web app for visual bibliometric analysis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sf-actions">
+                        <a href="https://www.bibliometrix.org" target="_blank" rel="noopener" class="btn btn-secondary">
+                            <i class="fas fa-globe"></i> Visit bibliometrix.org
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-name">Luca D'Aniello</p>
+                <p class="footer-sub">Researcher in Social Statistics · University of Naples Federico II<br>
+                <a href="mailto:luca.daniello@unina.it">luca.daniello@unina.it</a></p>
+                <p class="footer-copy">&copy; <span class="year"></span> Luca D'Aniello</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

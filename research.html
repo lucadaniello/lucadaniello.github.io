@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Research — publications, projects, and research interests of Luca D'Aniello.">
+    <title>Research | Luca D'Aniello</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="inner-page">
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Luca D'Aniello</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="research.html" class="nav-link active">Research</a></li>
+                <li><a href="software.html" class="nav-link">Software</a></li>
+                <li><a href="teaching.html" class="nav-link">Teaching</a></li>
+                <li><a href="outreach.html" class="nav-link">Outreach</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header-bg"></div>
+        <div class="container">
+            <span class="page-tag reveal-up">Scholarship</span>
+            <h1 class="page-title reveal-up delay-1">Research</h1>
+        </div>
+    </header>
+
+    <!-- Stats Banner -->
+    <div class="stats-banner">
+        <div class="container">
+            <div class="stats-row reveal-up">
+                <div class="stats-block">
+                    <span class="stat-num" data-target="41">0</span>
+                    <span class="stat-label">Total Publications</span>
+                    <span class="stat-sub">29 indexed</span>
+                </div>
+                <div class="stats-sep"></div>
+                <div class="stats-block">
+                    <span class="stat-num" data-target="11">0</span>
+                    <span class="stat-label">H-index</span>
+                    <span class="stat-sub">Scopus</span>
+                </div>
+                <div class="stats-sep"></div>
+                <div class="stats-block">
+                    <span class="stat-num" data-target="425">0</span>
+                    <span class="stat-label">Citations</span>
+                    <span class="stat-sub">Scopus, 2026</span>
+                </div>
+                <div class="stats-sep stats-sep-right"></div>
+                <div class="stats-links">
+                    <span class="stats-links-label">Verify on</span>
+                    <div class="stats-db-links">
+                        <a href="https://scholar.google.com/citations?user=YFqLaKoAAAAJ" target="_blank" rel="noopener" class="db-link">
+                            <i class="fas fa-graduation-cap"></i> Google Scholar
+                        </a>
+                        <a href="https://www.scopus.com/authid/detail.uri?authorId=57243936600" target="_blank" rel="noopener" class="db-link">
+                            <i class="fas fa-database"></i> Scopus
+                        </a>
+                        <a href="https://www.researchgate.net/profile/Luca-Daniello" target="_blank" rel="noopener" class="db-link">
+                            <i class="fab fa-researchgate"></i> ResearchGate
+                        </a>
+                        <a href="https://orcid.org/0000-0003-1019-9212" target="_blank" rel="noopener" class="db-link">
+                            <i class="fab fa-orcid"></i> ORCID
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Research Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Overview</span>
+                <h2 class="section-title">Research Areas</h2>
+            </div>
+            <div class="research-areas-grid">
+                <div class="research-area-card reveal-up">
+                    <div class="ra-icon"><i class="fas fa-sitemap"></i></div>
+                    <h3>Bibliometrics &amp; Scientometrics</h3>
+                    <p>Development and application of quantitative methods for the analysis of scientific literature, including science mapping, citation analysis, and performance indicators for research institutions.</p>
+                </div>
+                <div class="research-area-card reveal-up delay-1">
+                    <div class="ra-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>Text Mining &amp; NLP</h3>
+                    <p>Quantitative and qualitative analysis of textual corpora using statistical approaches: topic modeling, thematic evolution, automatic summarization, and knowledge extraction from scientific literature.</p>
+                </div>
+                <div class="research-area-card reveal-up delay-2">
+                    <div class="ra-icon"><i class="fas fa-hospital"></i></div>
+                    <h3>Academic Health Centers</h3>
+                    <p>Evaluation of the scientific productivity, governance, and healthcare performance of Italian public Academic Medical Centers (AHSCs) using bibliometric and statistical indicators.</p>
+                </div>
+                <div class="research-area-card reveal-up delay-3">
+                    <div class="ra-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Statistical Methods</h3>
+                    <p>Development and application of advanced statistical and data science methods — from multivariate analysis to machine learning — in social, educational, and health research contexts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Publications</span>
+                <h2 class="section-title">Scientific Publications</h2>
+            </div>
+
+            <!-- Working Papers -->
+            <div class="subsection">
+                <div class="subsection-header reveal-up">
+                    <h3 class="subsection-title">Working Papers &amp; Preprints</h3>
+                </div>
+                <div class="pub-list">
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2026</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-preprint">Preprint</span><span class="badge badge-arXiv">arXiv</span></div>
+                            <h4 class="pub-title">Rethinking Thematic Evolution in Science Mapping: An Integrated Framework for Longitudinal Analysis</h4>
+                            <p class="pub-meta">Aria, M., <strong>D'Aniello, L.</strong>, Misuraca, M., Spano, M.</p>
+                            <p class="pub-venue">Pre-print available in arXiv. DOI: 10.48550/arXiv.2603.06436</p>
+                            <a href="https://doi.org/10.48550/arXiv.2603.06436" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View preprint</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2025</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-preprint">Preprint</span></div>
+                            <h4 class="pub-title">Semantic Pathways to Knowledge: Analyzing Scientific Texts Beyond Metrics</h4>
+                            <p class="pub-meta"><strong>D'Aniello, L.</strong>, Robinson-Garcia, N., Aria, M., &amp; Cuccurullo, C.</p>
+                            <p class="pub-venue">Pre-print available in arXiv:2407.1864</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2025</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-preprint">Under Review</span></div>
+                            <h4 class="pub-title">ThemeScope: A quantitative thematic analysis for depicting social representations in digital arenas</h4>
+                            <p class="pub-meta">Misuraca, M., Spano, M., <strong>D'Aniello, L.</strong></p>
+                            <p class="pub-venue"><em>Journal of Information Science</em> · SAGE Publications (under review)</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2025</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Accepted</span></div>
+                            <h4 class="pub-title">Synthetizing Knowledge: An Integrated Approach for Extracting Relevant Content from Scientific Literature</h4>
+                            <p class="pub-meta">Aria, M., Cuccurullo, C., <strong>D'Aniello, L.</strong>, Misuraca, M. &amp; Spano, M.</p>
+                            <p class="pub-venue"><em>Tesi e Temi</em> (accepted)</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2026</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-preprint">Under Review</span></div>
+                            <h4 class="pub-title">Understanding the Dual Nature of AI in Management Research: A Bibliometric Analysis</h4>
+                            <p class="pub-meta">Ariante, I., Aria, M., <strong>D'Aniello, L.</strong></p>
+                            <p class="pub-venue"><em>Management Decision</em> (under review)</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Journal Articles -->
+            <div class="subsection">
+                <div class="subsection-header reveal-up">
+                    <h3 class="subsection-title">Articles in International Scientific Journals</h3>
+                    <span class="subsection-note">* Fascia A, Area 13 STAT-03/B</span>
+                </div>
+                <div class="pub-list">
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2026</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span><span class="badge badge-software">Software</span></div>
+                            <h4 class="pub-title">TALL: Text analysis for all — an interactive R-shiny application for exploring, modeling, and visualizing textual data</h4>
+                            <p class="pub-meta">Aria, M., Spano, M., <strong>D'Aniello, L.</strong>, Cuccurullo, C., Misuraca, C., Spano, M.</p>
+                            <p class="pub-venue"><em>SoftwareX</em> · Elsevier · DOI: 10.1016/j.softx.2026.102590</p>
+                            <a href="https://doi.org/10.1016/j.softx.2026.102590" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2025</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Inside the Fire. Exploring the Impact of Anxiety, Depression, and Sleep Disturbances on Pain Perception in Burning Mouth Syndrome: A Cross-Sectional Study of 200 Patients</h4>
+                            <p class="pub-meta">Argiuolo, A., Canfora, F., Muzii, B., D'Antonio, C., D'Auria, D., Giudice, A., Musella, G., <strong>D'Aniello, L.</strong>, … &amp; Adamo, D.</p>
+                            <p class="pub-venue"><em>Journal of Oral Pathology &amp; Medicine</em> · Wiley · DOI: 10.1111/jop.70026</p>
+                            <a href="https://doi.org/10.1111/jop.70026" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2025</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Cross-Cultural Differences and Clinical Presentations in Burning Mouth Syndrome: A Cross-Sectional Comparative Study of Italian and Romanian Outpatient Settings</h4>
+                            <p class="pub-meta">Ionescu, C. G., Musella, G., Canfora, F., D'Antonio, C., Memé, L., Leuci, S., …, <strong>D'Aniello, L.</strong>, …, &amp; Adamo, D.</p>
+                            <p class="pub-venue"><em>Journal of Clinical Medicine</em>, 14(16), 5805 · MDPI · DOI: 10.3390/jcm14165805</p>
+                            <a href="https://doi.org/10.3390/jcm14165805" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2025</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Vortioxetine versus SSRI/SNRI with pregabalin augmentation in treatment-resistant burning mouth syndrome: a prospective clinical trial</h4>
+                            <p class="pub-meta">Adamo, D., Canfora, F., Pecoraro, G., Leuci, S., Coppola, N., Narenzi, G., …, <strong>D'Aniello, L.</strong>, Mignogna, M.D., &amp; Albert, U.</p>
+                            <p class="pub-venue"><em>Current Neuropharmacology</em>, 23(7), 800–819 · Bentham Science · DOI: 10.2174/1570159X22999240729103717</p>
+                            <a href="https://doi.org/10.2174/1570159X22999240729103717" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2025</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Obsessive-compulsive symptoms and traits in patients with burning mouth syndrome: a cross-sectional multicentric analysis</h4>
+                            <p class="pub-meta">Pellegrini, L., Canfora, F., Ottaviani, G., D'Antonio, C., Rupel, K., Mignogna, M. D., …, Aria, M., <strong>D'Aniello, L.</strong>, Albert, U. &amp; Adamo, D.</p>
+                            <p class="pub-venue"><em>Clinical Oral Investigations</em>, 29(4), 1–16 · Springer · DOI: 10.1007/s00784-025-06293-6</p>
+                            <a href="https://doi.org/10.1007/s00784-025-06293-6" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2025</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Oral Dysaesthetic and Perceptual Dysaesthesia, a Distinct Subset of Chronic Orofacial Pain Without Burning Symptoms: A Case–Control Study</h4>
+                            <p class="pub-meta">Musella, G., Canfora, F., Caponio, V. C. A., Vardas, E., Kouri, M., Nikitakis, N., …, Aria, M., <strong>D'Aniello, L.</strong>, Lo Muzio, L., Mignogna, D.M., &amp; Adamo, D.</p>
+                            <p class="pub-venue"><em>Journal of Oral Rehabilitation</em>, 52(5), 651–666 · Wiley · DOI: 10.1111/joor.13945</p>
+                            <a href="https://doi.org/10.1111/joor.13945" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2024</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span><span class="badge badge-fascia">* Fascia A</span></div>
+                            <h4 class="pub-title">Comparative science mapping: a novel conceptual structure analysis with metadata</h4>
+                            <p class="pub-meta">* Aria, M., <strong>D'Aniello, L.</strong>, Cuccurullo, C., Misuraca, M. &amp; Spano, M.</p>
+                            <p class="pub-venue"><em>Scientometrics</em>, 129(11), 7055–7081 · Springer · DOI: 10.1007/s11192-024-05161-6</p>
+                            <a href="https://doi.org/10.1007/s11192-024-05161-6" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2024</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span><span class="badge badge-fascia">* Fascia A</span></div>
+                            <h4 class="pub-title">Mapping the evolution of gender dysphoria research: a comprehensive bibliometric analysis</h4>
+                            <p class="pub-meta">* Aria, M., <strong>D'Aniello, L.</strong>, Grassia, M. G., Marino, M., Mazza, R., &amp; Stavolo, A.</p>
+                            <p class="pub-venue"><em>Quality &amp; Quantity</em>, 58, 5351–5375 · Springer · DOI: 10.1007/s11135-024-01902-0</p>
+                            <a href="https://doi.org/10.1007/s11135-024-01902-0" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2024</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Unveiling the Lernen effect in the scientific literature domain: Navigating quality amidst the artificial intelligence-driven deluge</h4>
+                            <p class="pub-meta"><strong>D'Aniello, L.</strong></p>
+                            <p class="pub-venue"><em>Journal of Oral Pathology &amp; Medicine</em>, 53(6), 331–333 · Wiley · Invited Editorial · DOI: 10.1111/jop.13569</p>
+                            <a href="https://doi.org/10.1111/jop.13569" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2024</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Gender differences in pain perception among burning mouth syndrome patients: a cross-sectional study of 242 men and 242 women</h4>
+                            <p class="pub-meta">Adamo, D., Canfora, F., Leuci, S., …, Aria, M., <strong>D'Aniello, L.</strong>, Mignogna, D.M., &amp; Adamo, D.</p>
+                            <p class="pub-venue"><em>Scientific Reports</em>, 14, 3340 · Nature Portfolio · DOI: 10.1038/s41598-024-53074-4</p>
+                            <a href="https://doi.org/10.1038/s41598-024-53074-4" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2024</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">COVID-19 impact on post-traumatic stress symptoms in burning mouth syndrome: a multicentric study</h4>
+                            <p class="pub-meta">Ottaviani, G., Canfora, F., Leuci, S., Coppola, N., Pecoraro, G., Rupel, K., Bogdan Preda, M. T., Vello, V., Umberto, A., Gasparro, R., Gobbo, M., Guarda-Nardini, L., Giudice, A., Calabria, E., Aria, M., <strong>D'Aniello, L.</strong>, …</p>
+                            <p class="pub-venue"><em>Oral diseases</em> · Wiley · DOI: 10.1111/odi.14915</p>
+                            <a href="https://doi.org/10.1111/odi.14915" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2024</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">The global distribution of special needs dentistry across dental school curricula</h4>
+                            <p class="pub-meta">Scepanovic, T., Mati, S., Ming, A. L., Yeo, P. Y., Nguyen, D., Aria, M., <strong>D'Aniello, L.</strong>, … &amp; Celentano, A.</p>
+                            <p class="pub-venue"><em>Special Care in Dentistry</em>, 44(4), 1191–1210 · Wiley · DOI: 10.1111/scd.1297</p>
+                            <a href="https://doi.org/10.1111/scd.1297" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2024</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Evaluating global research trends in special needs dentistry: a systematic bibliometrix analysis</h4>
+                            <p class="pub-meta">Senthilvadevel, N., Ky, J., Ng, M., Zhao, T., Aria, M., <strong>D'Aniello, L.</strong>, … &amp; Celentano, A.</p>
+                            <p class="pub-venue"><em>Clinical and Experimental Dental Research</em>, 10(3) · Wiley · DOI: 10.1002/cre2.896</p>
+                            <a href="https://doi.org/10.1002/cre2.896" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2023</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span><span class="badge badge-fascia">* Fascia A</span></div>
+                            <h4 class="pub-title">Balancing tourism and conservation: analysing the sustainability of tourism in the city of Naples through citizen perspectives</h4>
+                            <p class="pub-meta">* Aria, M., <strong>D'Aniello, L.</strong>, Della Corte, V. &amp; Pagliara, F.</p>
+                            <p class="pub-venue"><em>Quality &amp; Quantity</em> · Springer · DOI: 10.1007/s11135-023-01774-w</p>
+                            <a href="https://doi.org/10.1007/s11135-023-01774-w" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2023</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Planning the future of rail in the post-COVID era</h4>
+                            <p class="pub-meta">Pagliara, F., Aria, M., Castelluccio, A., Targaglia, M., &amp; <strong>D'Aniello, L.</strong></p>
+                            <p class="pub-venue"><em>Transportation Planning and Technology</em>, 1–26 · Taylor &amp; Francis · DOI: 10.1080/03081060.2023.2263440</p>
+                            <a href="https://doi.org/10.1080/03081060.2023.2263440" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2023</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Loneliness during the COVID-19 Pandemic in Patients with Burning Mouth Syndrome: A Multicentric Case-Control Italian Study</h4>
+                            <p class="pub-meta">Adamo, D., Ottaviani, G., Canfora, F., Leuci, S., Coppola, N., Pecoraro, G., Aria, M., <strong>D'Aniello, L.</strong>, … &amp; Mignogna, M.D.</p>
+                            <p class="pub-venue"><em>Depression and Anxiety</em> · Wiley · DOI: 10.1155/2023/6666741</p>
+                            <a href="https://doi.org/10.1155/2023/6666741" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2023</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Salivary Complaints in Burning Mouth Syndrome: A Cross Sectional Study on 500 Patients</h4>
+                            <p class="pub-meta">Canfora, F., Calabria, E., Spagnuolo, G., …, Aria, M., <strong>D'Aniello, L.</strong>, &amp; Adamo, D.</p>
+                            <p class="pub-venue"><em>Journal of Clinical Medicine</em>, 12(17), 5561 · MDPI · DOI: 10.3390/jcm12175561</p>
+                            <a href="https://doi.org/10.3390/jcm12175561" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2023</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Burning mouth syndrome: Analysis of diagnostic delay in 500 patients</h4>
+                            <p class="pub-meta">Adamo, D., Calabria, E., Canfora, F., Coppola, N., Pecoraro, G., <strong>D'Aniello, L.</strong>, Aria, M., Mignogna, M. D. &amp; Leuci, S.</p>
+                            <p class="pub-venue"><em>Oral Diseases</em>, 30(3), 1543–1554 · Wiley · DOI: 10.1111/odi.14553</p>
+                            <a href="https://doi.org/10.1111/odi.14553" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2023</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Anxiety and depression in keratotic oral lichen planus: a multicentric study from the SIPMO</h4>
+                            <p class="pub-meta">Adamo, D., Calabria, E., Canfora, F., Coppola, N., Leuci, S., Mignogna, M., …, Aria, M., <strong>D'Aniello, L.</strong> &amp; Mignogna, M. D.</p>
+                            <p class="pub-venue"><em>Clinical Oral Investigations</em>, 1–13 · Springer · DOI: 10.1007/s00784-023-04909-3</p>
+                            <a href="https://doi.org/10.1007/s00784-023-04909-3" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2023</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Burning Mouth Syndrome and Hypertension: Prevalence, Gender Differences and Association with Pain and Psycho-Social Characteristics — A Case Control Study</h4>
+                            <p class="pub-meta">Adamo, D., Canfora, F., Elena, C., Coppola, N., Sansone, M., Spagnuolo, G., …, Aria, M., <strong>D'Aniello, L.</strong>, Mignogna, M.D. &amp; Leuci, S.</p>
+                            <p class="pub-venue"><em>International Journal of Environmental Research and Public Health</em>, 20(3), 2040 · MDPI · DOI: 10.3390/ijerph20032040</p>
+                            <a href="https://doi.org/10.3390/ijerph20032040" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2023</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Prevalence of hypertension and correlation with mental health in women with burning mouth syndrome: a case-control study</h4>
+                            <p class="pub-meta">Canfora, F., Calabria E., Pecoraro G., Leuci S., Coppola N., Mazzaccara C., Spirito F., Aria M., <strong>D'Aniello L.</strong>, Mignogna MD &amp; Adamo D.</p>
+                            <p class="pub-venue"><em>Frontiers in Cardiovascular Medicine</em> · Frontiers · DOI: 10.3389/fcvm.2022.969148</p>
+                            <a href="https://doi.org/10.3389/fcvm.2022.969148" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2022</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Academic Health Centers' configurations, scientific productivity, and impact: insights from the Italian setting</h4>
+                            <p class="pub-meta"><strong>D'Aniello, L.</strong>, Spano, M., Cuccurullo, C., &amp; Aria, M.</p>
+                            <p class="pub-venue"><em>Health Policy</em>, 126, 1317–1323 · Elsevier · DOI: 10.1016/j.healthpol.2022.09.007</p>
+                            <a href="https://doi.org/10.1016/j.healthpol.2022.09.007" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2022</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span><span class="badge badge-fascia">* Fascia A</span></div>
+                            <h4 class="pub-title">Thematic Analysis as a New Culturomic Tool: The Social Media Coverage on COVID-19 Pandemic in Italy</h4>
+                            <p class="pub-meta">* Aria M., Cuccurullo C., <strong>D'Aniello L.</strong>, Misuraca M., Spano M.</p>
+                            <p class="pub-venue"><em>Sustainability</em>, 14(6), 3643 · MDPI · DOI: 10.3390/su14063643</p>
+                            <a href="https://doi.org/10.3390/su14063643" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2022</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Where do you live? North versus Central-South differences in relation to Italian patients with oral lichen planus: a cross-sectional study from the SIPMO</h4>
+                            <p class="pub-meta">Adamo, D., Canfora, F., Coppola, N., Leuci, S., Lo Muzio, L., Spirito, F., …, Aria, M., <strong>D'Aniello, L.</strong> &amp; Mignogna, M. D.</p>
+                            <p class="pub-venue"><em>BMC Oral Health</em>, 22(1), 1–16 · Springer · DOI: 10.1186/s12903-022-02181-7</p>
+                            <a href="https://doi.org/10.1186/s12903-022-02181-7" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2022</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">The use of self-report questionnaires in an analysis of the multidimensional aspects of pain and quality of life in patients with burning mouth syndrome</h4>
+                            <p class="pub-meta">Canfora, F., Calabria, E., Pecoraro, G., <strong>D'Aniello, L.</strong>, Aria, M., Marenzi, G., … &amp; Adamo, D.</p>
+                            <p class="pub-venue"><em>Journal of Oral Rehabilitation</em>, 49(9), 890–914 · Wiley · DOI: 10.1111/joor.13343</p>
+                            <a href="https://doi.org/10.1111/joor.13343" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2022</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">White matter hyperintensities in Burning Mouth Syndrome assessed according to the Age-Related White Matter Changes scale</h4>
+                            <p class="pub-meta">Adamo, D., Canfora, F., Calabria, E., Coppola, N., Leuci, S., Pecoraro, G., …, Aria, M., <strong>D'Aniello, L.</strong>, &amp; Mignogna, M.</p>
+                            <p class="pub-venue"><em>Frontiers in aging neuroscience</em>, 14 · Frontiers · DOI: 10.3389/fnagi.2022.923720</p>
+                            <a href="https://doi.org/10.3389/fnagi.2022.923720" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2021</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span></div>
+                            <h4 class="pub-title">Burning Fog: Cognitive Impairment in Burning Mouth Syndrome</h4>
+                            <p class="pub-meta">Canfora, F., Calabria, E., Cuocolo, R., Ugga, L., Buono, G., Marenzi, G., …, Aria, M., <strong>D'Aniello, L.</strong> &amp; Adamo, D.</p>
+                            <p class="pub-venue"><em>Frontiers in aging neuroscience</em>, 14 · Frontiers · DOI: 10.3389/fnagi.2021.727417</p>
+                            <a href="https://doi.org/10.3389/fnagi.2021.727417" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Books -->
+            <div class="subsection">
+                <div class="subsection-header reveal-up">
+                    <h3 class="subsection-title">Books &amp; Monographs</h3>
+                </div>
+                <div class="pub-list">
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2023</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-book">Book</span></div>
+                            <h4 class="pub-title">Leading Change in Academic Health Science Centers</h4>
+                            <p class="pub-meta">Cuccurullo, C., Aria, M., Spano, M., &amp; <strong>D'Aniello, L.</strong></p>
+                            <p class="pub-venue"><em>Zaccaria</em> · ISBN: 9788899594213 · DOI: 10.5281/zenodo.15193956</p>
+                            <a href="https://doi.org/10.5281/zenodo.15193956" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conference Proceedings -->
+            <div class="subsection">
+                <div class="subsection-header reveal-up">
+                    <h3 class="subsection-title">Conference Proceedings</h3>
+                </div>
+                <div class="pub-list">
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2025</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-conf">Proceedings</span></div>
+                            <h4 class="pub-title">Keyword-enhanced summarization from scientific literature through an integrated approach</h4>
+                            <p class="pub-meta">Aria, M., Cuccurullo, C., D'Aniello L., Misuraca, M. &amp; Spano M.</p>
+                            <p class="pub-venue">In <em>Measuring and Interpreting World Changes with Statistics, Data Science and AI</em> — Book of short papers of the ASA Rome Conference. Supplement to Volume 37/2 (pp 37-42). DOI: 10.26398/asaproc.0076</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2025</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-conf">Proceedings</span></div>
+                            <h4 class="pub-title">From Data Collection to Knowledge in Health: Turning Scientific Production into Practical Decision-Making Tools</h4>
+                            <p class="pub-meta">Aria, M., Cuccurullo, C., <strong>D'Aniello, L.</strong> &amp; Spano M.</p>
+                            <p class="pub-venue">In <em>Book of Short Papers 2025 Conference of the 12th Scientific Meeting of the Statistics for the Evaluation and Quality of Services Group</em> of the Italian Statistical Society. ISBN: 978-88-5495-849-4.</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2024</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-conf">Proceedings</span></div>
+                            <h4 class="pub-title">Extracting knowledge from scientific literature with an integrated Text Summarization approach</h4>
+                            <p class="pub-meta"><strong>D'Aniello, L.</strong>, Aria, M., Cuccurullo, C., Misuraca, M., &amp; Spano M.</p>
+                            <p class="pub-venue">In A. Dister, D. Longrée (eds.), <em>Mots competes textes déchiffrés (JADT24)</em> Presses Universitaires De Louvain Vol.1 pp. 239-248. ISBN:978-2-39061-471-5</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2024</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-conf">Proceedings</span></div>
+                            <h4 class="pub-title">TALL: A new Shiny app for Text Analysis</h4>
+                            <p class="pub-meta">Aria, M., Cuccurullo, C., <strong>D'Aniello, L.</strong>, Misuraca, M., &amp; Spano M.</p>
+                            <p class="pub-venue">In A. Pollice, P. Mariani (eds.) <em>Methodological and Applied Statistics and Demography III (SIS 2024)</em> (pp. 64-70). Springer Nature. ISBN: 978-3-031-64430-6. DOI: 10.1007/978-3-031-64331-3</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2024</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-conf">Proceedings</span></div>
+                            <h4 class="pub-title">Breaking Barriers with TALL: A Text Analysis Shiny app for ALL</h4>
+                            <p class="pub-meta">Aria, M., Cuccurullo, C., <strong>D'Aniello, L.</strong>, &amp; Spano M.</p>
+                            <p class="pub-venue">In A. Dister, D. Longrée (eds.), <em>Mots competes textes déchiffrés (JADT24)</em> Presses Universitaires De Louvain Vol.1 pp. 39-48. ISBN:978-2-39061-471-5.</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2023</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-conf">Proceedings</span></div>
+                            <h4 class="pub-title">Naples and tourism sustainability: A survey of citizens' perceptions</h4>
+                            <p class="pub-meta">Aria, M., Pagliara, F., <strong>D'Aniello, L.</strong>, &amp; Della Corte, V.</p>
+                            <p class="pub-venue">In <em>IES 2023-Statistical Methods for Evaluation and Quality</em> (T3) BOOK OF SHORT PAPERS. Edizioni Il Viandante. ISBN: 979-12-803-3369-8.</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2023</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-conf">Proceedings</span></div>
+                            <h4 class="pub-title">TAll: a new Shiny app of Text Analysis for all</h4>
+                            <p class="pub-meta">Aria, M., Cuccurullo, C., <strong>D'Aniello, L.</strong>, Misuraca, M., Spano, M.</p>
+                            <p class="pub-venue">In <em>Proceedings of the 9th Italian Conference on Computational Linguistics (CLiC-it 2023)</em>, CEUR Workshop Proceedings, Vol. 3596, pp. 476-479. ISBN: 979-12-550-0084-6.</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2022</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-conf">Proceedings</span></div>
+                            <h4 class="pub-title">Mapping evolutionary paths of a society: the longitudinal analysis of the Italian Economia Aziendale</h4>
+                            <p class="pub-meta">Cuccurullo, C., <strong>D'Aniello, L.</strong>, &amp; Pizzo, M.</p>
+                            <p class="pub-venue">In <em>51st Scientific Meeting Of The Italian Statistical Society — SIS 2022 Book of Short Papers</em> (pp. 786-792). Pearson. ISBN 9788891932310.</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2022</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-conf">Proceedings</span></div>
+                            <h4 class="pub-title">Text Summarization of a scientific document: a comparison of extractive unsupervised methods</h4>
+                            <p class="pub-meta">Aria, M., Cuccurullo, C., <strong>D'Aniello, L.</strong>, Misuraca, M., &amp; Spano, M.</p>
+                            <p class="pub-venue">In <em>Proceedings of the 16th International Conference on Statistical Analysis of Textual Data</em> (Vol. 1, pp. 67–73). VADISTAT Press/Edizioni Erranti. ISBN: 979-12-80153-30-2.</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2022</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-conf">Proceedings</span></div>
+                            <h4 class="pub-title">Twenty Years of Random Forest: preliminary results of systematic literature review</h4>
+                            <p class="pub-meta">Aria M., Gnasso A. and <strong>D'Aniello L.</strong></p>
+                            <p class="pub-venue">In <em>10th International Conference IES 2022</em> (pp. 225-230). PKE-Professional Knowledge Empowerment srl. ISBN 978-88-94593-35-8.</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2022</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-conf">Proceedings</span></div>
+                            <h4 class="pub-title">Thematic evolution of Academic Medical Centers' research: a focus on Italian public-owned AOUs in metropolitan areas</h4>
+                            <p class="pub-meta">Cuccurullo, C., <strong>D'Aniello, L.</strong>, Aria, M., Spano, M.</p>
+                            <p class="pub-venue">In <em>10th International Conference IES 2022</em> (pp. 69-72). PKE-Professional Knowledge Empowerment srl. ISBN 978-88-94593-35-8.</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2021</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-conf">Proceedings</span></div>
+                            <h4 class="pub-title">Measuring the impact of healthcare indicators on academic medical centers' scientific production</h4>
+                            <p class="pub-meta">Cuccurullo, C., <strong>D'Aniello, L.</strong>, Aria, M., Spano, M.</p>
+                            <p class="pub-venue">In B. Bartaccini, L. Fabbris, A. Petrucci (eds.), <em>ASA 2021 Statistics and Information Systems for Policy Evaluation</em>. Firenze University Press. DOI: 10.36253/978-88-5518-461-8.</p>
+                        </div>
+                    </div>
+
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2021</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-conf">Proceedings</span></div>
+                            <h4 class="pub-title">Thematic atlas of Italian oncological research: the analysis of public IRCCS</h4>
+                            <p class="pub-meta">Cuccurullo, C., <strong>D'Aniello, L.</strong>, Spano, M.</p>
+                            <p class="pub-venue">In B. Bartaccini, L. Fabbris, A. Petrucci (eds.), <em>ASA 2021 Statistics and Information Systems for Policy Evaluation</em>. Firenze University Press. DOI: 10.36253/978-88-5518-304-8.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Projects -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Funding</span>
+                <h2 class="section-title">Research Projects</h2>
+            </div>
+            <div class="projects-grid">
+
+                <div class="project-card reveal-up">
+                    <div class="project-top">
+                        <span class="project-badge">PRIN 2022</span>
+                        <span class="project-years">2023 – 2026</span>
+                    </div>
+                    <h4 class="project-title">SciK-Health: Mapping Scientific Knowledge about Health for Decision-Making</h4>
+                    <p class="project-desc">Development of advanced scientometric indicators for the analysis and valorisation of scientific production of Italian public hospital research centers (AHSCs). Codice: 2022825Y5E, E53D2300611006.</p>
+                    <div class="project-footer">
+                        <span class="project-role"><i class="fas fa-user-tie"></i> Junior Researcher</span>
+                        <span class="project-pi">PI: Prof. Massimo Aria</span>
+                    </div>
+                </div>
+
+                <div class="project-card reveal-up delay-1">
+                    <div class="project-top">
+                        <span class="project-badge pnrr">PRIN 2022 PNRR</span>
+                        <span class="project-years">2023 – 2026</span>
+                    </div>
+                    <h4 class="project-title">The Value of Scientific Production for Patient Care in Academic Health Science Centres</h4>
+                    <p class="project-desc">Systematic collection of bibliometric data and normalized indicators measuring research impact of Italian public AHSCs. Codice: P2022RF38Y, E53D23016650001.</p>
+                    <div class="project-footer">
+                        <span class="project-role"><i class="fas fa-user-tie"></i> Research Fellow</span>
+                        <span class="project-pi">PI: Prof. Corrado Cuccurullo</span>
+                    </div>
+                </div>
+
+                <div class="project-card reveal-up delay-2">
+                    <div class="project-top">
+                        <span class="project-badge pnrr">PRIN 2022 PNRR</span>
+                        <span class="project-years">2025 – 2026</span>
+                    </div>
+                    <h4 class="project-title">Reading the Italian Novel at a Distance (1830–1930)</h4>
+                    <p class="project-desc">Diachronic and synchronic statistical analyses on a large Italian literary corpus: cluster analysis, topic modeling, and development of a dedicated R analytical package. Codice: 2022JAYFJH, C53D23010300006.</p>
+                    <div class="project-footer">
+                        <span class="project-role"><i class="fas fa-user-tie"></i> Junior Researcher</span>
+                        <span class="project-pi">PI: Prof. Stefano Ondelli</span>
+                    </div>
+                </div>
+
+                <div class="project-card reveal-up">
+                    <div class="project-top">
+                        <span class="project-badge" style="background:#fef9c3;color:#92400e;">V:ALERE 2019</span>
+                        <span class="project-years">2020 – 2021</span>
+                    </div>
+                    <h4 class="project-title">Leading Change in AMC: Governing the Change of Italian Public Research and Teaching Hospitals</h4>
+                    <p class="project-desc">Bibliometric and statistical analysis of governance and scientific production of Italian Academic Medical Centers (AMCs), contributing to the mapping of their scientific output and performance in public health.</p>
+                    <div class="project-footer">
+                        <span class="project-role"><i class="fas fa-user-tie"></i> Research Fellow</span>
+                        <span class="project-pi">PI: Prof. Corrado Cuccurullo</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-name">Luca D'Aniello</p>
+                <p class="footer-sub">Researcher in Social Statistics · University of Naples Federico II<br>
+                <a href="mailto:luca.daniello@unina.it">luca.daniello@unina.it</a></p>
+                <p class="footer-copy">&copy; <span class="year"></span> Luca D'Aniello</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
