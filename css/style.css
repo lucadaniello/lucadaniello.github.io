@@ -1569,6 +1569,67 @@ ul { list-style: none; }
     .stats-sep { display: none; }
 }
 
+/* Research in-page tabs */
+.research-tabs-bar {
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: var(--nav-h);
+    z-index: 90;
+}
+.research-tabs {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+}
+.research-tab {
+    padding: 16px 28px;
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    transition: color .2s, border-color .2s;
+    white-space: nowrap;
+    margin-bottom: -2px;
+}
+.research-tab:hover,
+.research-tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Stats source note */
+.stats-source {
+    text-align: center;
+    font-size: .7rem;
+    color: rgba(255,255,255,.35);
+    margin-top: 16px;
+    letter-spacing: .04em;
+}
+
+/* Software logos */
+.sf-logo-wrap {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+.sf-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 6px;
+}
+
 @media (max-width: 768px) {
     :root {
         --section-pad: 64px;

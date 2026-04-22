@@ -85,8 +85,28 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         const target = document.querySelector(link.getAttribute('href'));
         if (!target) return;
         e.preventDefault();
-        const offset = 70;
+        const offset = 120;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
     });
 });
+
+/* ── Research tabs: highlight active on scroll ─────────────── */
+const researchTabs = document.querySelectorAll('.research-tab');
+if (researchTabs.length) {
+    const sections = ['research-areas', 'publications', 'projects']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+    function updateTabs() {
+        let current = sections[0];
+        sections.forEach(sec => {
+            if (window.scrollY + 160 >= sec.offsetTop) current = sec;
+        });
+        researchTabs.forEach(tab => {
+            tab.classList.toggle('active', tab.getAttribute('href') === '#' + current.id);
+        });
+    }
+    window.addEventListener('scroll', updateTabs, { passive: true });
+    updateTabs();
+}
