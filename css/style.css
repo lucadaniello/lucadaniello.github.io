@@ -226,6 +226,14 @@ ul { list-style: none; }
     flex-direction: column;
     overflow: hidden;
 }
+.hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
 .hero-bg-pattern {
     position: absolute;
     inset: 0;
@@ -1475,6 +1483,49 @@ ul { list-style: none; }
     font-style: italic;
     color: var(--text-muted) !important;
     margin-top: 4px;
+}
+
+/* ── Teaching card grid ──────────────────────────────────── */
+.teaching-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,.06);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-top: 48px;
+}
+.teaching-card {
+    background: var(--navy);
+    padding: 28px 28px 26px;
+    transition: background var(--transition);
+}
+.teaching-card:hover {
+    background: var(--navy-mid);
+}
+.teaching-card-title {
+    font-family: var(--font-sans);
+    font-size: .97rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+.teaching-card-it {
+    font-size: .8rem;
+    color: rgba(148,163,184,.65);
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .teaching-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .teaching-cards-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ── Contact page (standalone) ───────────────────────────── */
