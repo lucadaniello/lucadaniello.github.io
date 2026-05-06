@@ -1728,3 +1728,103 @@ ul { list-style: none; }
     .stat { width: 45%; }
     .pub-year { font-size: .7rem; }
 }
+
+/* ── Cite button & panel ───────────────────────────────────── */
+.cite-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+    padding: 2px 11px;
+    font: 600 .78rem var(--font-sans);
+    color: var(--blue);
+    background: transparent;
+    border: 1.5px solid var(--blue);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+    vertical-align: middle;
+    line-height: 1.7;
+}
+.cite-btn:hover,
+.cite-btn[aria-expanded="true"] {
+    background: var(--blue);
+    color: var(--white);
+}
+.cite-panel {
+    margin-top: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--white);
+    overflow: hidden;
+    animation: citeIn .15s ease;
+}
+@keyframes citeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.cite-tabs {
+    display: flex;
+    background: var(--light);
+    border-bottom: 1px solid var(--border);
+}
+.cite-tab {
+    flex: 1;
+    padding: 7px 4px;
+    font: 600 .73rem var(--font-sans);
+    letter-spacing: .03em;
+    color: var(--text-muted);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+.cite-tab:hover { color: var(--blue); }
+.cite-tab.active {
+    color: var(--blue);
+    border-bottom-color: var(--blue);
+    background: var(--white);
+}
+.cite-content {
+    position: relative;
+    padding: 14px;
+}
+.cite-text {
+    font-family: 'Courier New', monospace;
+    font-size: .73rem;
+    line-height: 1.7;
+    color: var(--text);
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+    padding-right: 72px;
+    min-height: 38px;
+}
+.cite-copy {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    font: 500 .72rem var(--font-sans);
+    color: var(--text-muted);
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.cite-copy:hover {
+    background: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+}
+.cite-copy.copied {
+    background: #059669;
+    color: var(--white);
+    border-color: #059669;
+}

@@ -91,6 +91,237 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
 });
 
+/* ── Cite buttons ──────────────────────────────────────────── */
+(function initCite() {
+    if (!document.querySelector('.pub-card')) return;
+
+    /* ── helpers ── */
+    function stripHtml(html) {
+        const d = document.createElement('div');
+        d.innerHTML = html;
+        return d.textContent.trim();
+    }
+
+    function parsePub(card) {
+        const year      = (card.querySelector('.pub-year')?.textContent   || '').trim();
+        const title     = (card.querySelector('.pub-title')?.textContent  || '').trim();
+        const authorsRaw = card.querySelector('.pub-meta')
+                          ? stripHtml(card.querySelector('.pub-meta').innerHTML)
+                          : '';
+        const venueEl   = card.querySelector('.pub-venue');
+        const venueHtml = venueEl ? venueEl.innerHTML : '';
+        const venueText = stripHtml(venueHtml);
+        const journal   = (venueEl?.querySelector('em')?.textContent || '').trim();
+
+        // DOI
+        const doiM  = venueText.match(/DOI:\s*(10\.[^\s·,\)]+)/);
+        const doi   = doiM ? doiM[1].replace(/\.$/, '') : '';
+
+        // ISBN
+        const isbnM = venueText.match(/ISBN:\s*([\d\-X]+)/);
+        const isbn  = isbnM ? isbnM[1] : '';
+
+        // Volume, issue, pages  →  ", 129(11), 7055–7081"  or  ", 14, 3340"
+        const volM  = venueText.match(/,\s*(\d+)(?:\((\d+)\))?,\s*([\d–\-]+(?:\d))/);
+        const volume = volM ? volM[1] : '';
+        const issue  = volM ? volM[2] || '' : '';
+        const pages  = volM ? volM[3] : '';
+
+        // Publisher: chunk between · and · DOI (or end)
+        let publisher = '';
+        const parts = venueText.split('·');
+        const doiIdx = parts.findIndex(p => p.includes('DOI:') || p.includes('ISBN:'));
+        if (doiIdx > 0) publisher = parts[doiIdx - 1].trim();
+
+        // Type
+        const badgeTexts = [...card.querySelectorAll('.badge')].map(b => b.textContent.trim());
+        let type = 'article';
+        if (badgeTexts.some(b => b === 'Book'))        type = 'book';
+        else if (badgeTexts.some(b => b === 'Proceedings')) type = 'inproceedings';
+        else if (badgeTexts.some(b => ['Preprint','Under Review','Accepted'].includes(b))) type = 'misc';
+
+        return { year, title, authors: authorsRaw, journal, doi, isbn, volume, issue, pages, publisher, type };
+    }
+
+    /* ── citation formatters ── */
+    function bibtexKey(authors, year) {
+        const first = authors.split(',')[0].trim().split(' ').pop();
+        return first.toLowerCase().replace(/[^a-z]/g, '') + year;
+    }
+    function bibtexAuthors(raw) {
+        // Replace " & " → " and ", "…" → "others",
+        // then ". , " (end-of-initial, author separator) → ". and "
+        return raw
+            .replace(/\s*&\s*/g, ' and ')
+            .replace(/…/g, 'others')
+            .replace(/([A-Z]\.),\s+(?!and|others)/g, '$1 and ');
+    }
+
+    function fmtAPA({ authors, year, title, journal, volume, issue, pages, doi, isbn, publisher, type }) {
+        let s = `${authors} (${year}). ${title}.`;
+        if (type === 'article' && journal) {
+            s += ` ${journal}`;
+            if (volume) s += `, ${volume}`;
+            if (issue)  s += `(${issue})`;
+            if (pages)  s += `, ${pages}`;
+            s += '.';
+        } else if (type === 'book') {
+            if (publisher) s += ` ${publisher}.`;
+            if (isbn)      s += ` ISBN: ${isbn}.`;
+        } else if (type === 'inproceedings' && journal) {
+            s += ` In ${journal}.`;
+        }
+        if (doi) s += ` https://doi.org/${doi}`;
+        return s;
+    }
+
+    function fmtMLA({ authors, year, title, journal, volume, issue, pages, doi, type }) {
+        let s = `${authors}. "${title}."`;
+        if (type === 'article' && journal) {
+            s += ` ${journal}`;
+            if (volume) s += `, vol. ${volume}`;
+            if (issue)  s += `, no. ${issue}`;
+            s += `, ${year}`;
+            if (pages)  s += `, pp. ${pages}`;
+            s += '.';
+        } else {
+            s += ` ${year}.`;
+        }
+        if (doi) s += ` DOI: ${doi}.`;
+        return s;
+    }
+
+    function fmtISO({ authors, year, title, journal, volume, issue, pages, doi, type }) {
+        const today = new Date().toISOString().split('T')[0];
+        let s = `${authors}. ${title}. `;
+        if (type === 'article' && journal) {
+            s += `${journal} [online]. ${year}`;
+            if (volume) s += `, vol. ${volume}`;
+            if (issue)  s += `, no. ${issue}`;
+            if (pages)  s += `, pp. ${pages}`;
+            s += ` [cited ${today}].`;
+        } else {
+            s += `${year}.`;
+        }
+        if (doi) s += ` Available from: https://doi.org/${doi}`;
+        return s;
+    }
+
+    function fmtBibTeX(data) {
+        const { year, title, journal, volume, issue, pages, doi, isbn, publisher, type } = data;
+        const key     = bibtexKey(data.authors, year);
+        const authors = bibtexAuthors(data.authors);
+        const jField  = type === 'article' ? 'journal' : 'booktitle';
+        let b = `@${type}{${key},\n`;
+        b += `  author    = {${authors}},\n`;
+        b += `  title     = {${title}},\n`;
+        if (journal)   b += `  ${jField.padEnd(9)} = {${journal}},\n`;
+        b += `  year      = {${year}}`;
+        if (volume)    b += `,\n  volume    = {${volume}}`;
+        if (issue)     b += `,\n  number    = {${issue}}`;
+        if (pages)     b += `,\n  pages     = {${pages}}`;
+        if (publisher) b += `,\n  publisher = {${publisher}}`;
+        if (doi)       b += `,\n  doi       = {${doi}}`;
+        if (isbn)      b += `,\n  isbn      = {${isbn}}`;
+        b += '\n}';
+        return b;
+    }
+
+    /* ── build panel DOM ── */
+    function buildPanel(data) {
+        const formats = {
+            apa:    fmtAPA(data),
+            mla:    fmtMLA(data),
+            iso:    fmtISO(data),
+            bibtex: fmtBibTeX(data)
+        };
+
+        const panel = document.createElement('div');
+        panel.className = 'cite-panel';
+        panel.hidden = true;
+        panel.innerHTML = `
+            <div class="cite-tabs">
+                <button class="cite-tab active" data-fmt="apa">APA</button>
+                <button class="cite-tab" data-fmt="mla">MLA</button>
+                <button class="cite-tab" data-fmt="iso">ISO 690</button>
+                <button class="cite-tab" data-fmt="bibtex">BibTeX</button>
+            </div>
+            <div class="cite-content">
+                <pre class="cite-text"></pre>
+                <button class="cite-copy"><i class="fas fa-copy"></i> Copy</button>
+            </div>`;
+
+        const tabs    = panel.querySelectorAll('.cite-tab');
+        const textEl  = panel.querySelector('.cite-text');
+        const copyBtn = panel.querySelector('.cite-copy');
+
+        textEl.textContent = formats.apa;
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                textEl.textContent = formats[tab.dataset.fmt];
+            });
+        });
+
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(textEl.textContent).then(() => {
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            });
+        });
+
+        return panel;
+    }
+
+    /* ── inject per card ── */
+    document.querySelectorAll('.pub-card').forEach(card => {
+        const pubBody = card.querySelector('.pub-body');
+        if (!pubBody) return;
+
+        const data  = parsePub(card);
+        const btn   = document.createElement('button');
+        btn.className = 'cite-btn';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.innerHTML = '<i class="fas fa-quote-right"></i> Cite';
+
+        const panel = buildPanel(data);
+
+        const viewLink = pubBody.querySelector('.pub-link');
+        if (viewLink) {
+            viewLink.after(btn);
+        } else {
+            pubBody.appendChild(btn);
+        }
+        pubBody.appendChild(panel);
+
+        btn.addEventListener('click', e => {
+            e.stopPropagation();
+            const isOpen = !panel.hidden;
+            // close all
+            document.querySelectorAll('.cite-panel').forEach(p => { p.hidden = true; });
+            document.querySelectorAll('.cite-btn').forEach(b => b.setAttribute('aria-expanded','false'));
+            if (!isOpen) {
+                panel.hidden = false;
+                btn.setAttribute('aria-expanded', 'true');
+                panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            }
+        });
+
+        panel.addEventListener('click', e => e.stopPropagation());
+    });
+
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.cite-panel').forEach(p => { p.hidden = true; });
+        document.querySelectorAll('.cite-btn').forEach(b => b.setAttribute('aria-expanded','false'));
+    });
+})();
+
 /* ── Research tabs: highlight active on scroll ─────────────── */
 const researchTabs = document.querySelectorAll('.research-tab');
 if (researchTabs.length) {
