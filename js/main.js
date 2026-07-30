@@ -283,6 +283,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     document.querySelectorAll('.pub-card').forEach(card => {
         const pubBody = card.querySelector('.pub-body');
         if (!pubBody) return;
+        if (card.closest('.no-cite')) return;   // e.g. Outreach conference presentations
 
         const data  = parsePub(card);
         const btn   = document.createElement('button');

@@ -1,9 +1,9 @@
 /* ============================================================
    Hero network — a growing graph.
    A central node appears first, then nodes are added one by one
-   and link into the graph, drawing the connections as they form,
-   so it looks like a network being built. Once grown, the nodes
-   drift gently to keep the background alive.
+   and link into the graph with curved connections drawn as they
+   form, so it looks like a network being built. Once grown, the
+   nodes drift gently to keep the background alive.
    ============================================================ */
 (function () {
     const canvas = document.getElementById('hero-canvas');
@@ -14,13 +14,14 @@
                    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // ── tuning ──────────────────────────────────────────────
-    const TARGET       = 48;    // final number of nodes
-    const GROWTH_MS     = 210;   // cadence of new nodes (moderate)
+    const TARGET       = 300;   // final number of nodes
+    const GROWTH_MS     = 65;    // cadence of new nodes (moderate build)
     const NODE_APPEAR   = 500;   // node fade/scale-in (ms)
     const EDGE_GROW     = 450;   // edge draw-in (ms)
-    const EXTRA_LINK_P  = 0.35;  // chance of an extra mesh link
-    const MAX_LINK_DIST = 175;   // px for the extra mesh link
-    const DRIFT         = 0.18;  // idle drift speed
+    const EXTRA_LINK_P  = 0.3;   // chance of an extra mesh link
+    const MAX_LINK_DIST = 150;   // px for the extra mesh link
+    const DRIFT         = 0.16;  // idle drift speed
+    const CURVE         = 0.22;  // max edge curvature
 
     let W, H, dpr, raf, growthTimer;
     const nodes = [];
@@ -39,15 +40,16 @@
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
+    function addEdge(a, b) {
+        edges.push({ a, b, created: now(), curv: rand(-CURVE, CURVE) });
+        nodes[a].deg++;
+        nodes[b].deg++;
+    }
+
     function addNode(x, y, r, parentIdx) {
-        const n = { x, y, vx: rand(-DRIFT, DRIFT), vy: rand(-DRIFT, DRIFT), r, born: now(), deg: 0 };
-        nodes.push(n);
+        nodes.push({ x, y, vx: rand(-DRIFT, DRIFT), vy: rand(-DRIFT, DRIFT), r, born: now(), deg: 0 });
         const idx = nodes.length - 1;
-        if (parentIdx != null) {
-            edges.push({ a: parentIdx, b: idx, created: now() });
-            nodes[parentIdx].deg++;
-            n.deg++;
-        }
+        if (parentIdx != null) addEdge(parentIdx, idx);
         return idx;
     }
 
@@ -71,11 +73,11 @@
         const p      = pickParent();
         const parent = nodes[p];
         const ang    = rand(0, Math.PI * 2);
-        const dist   = rand(55, 120);
-        const m      = 38;
+        const dist   = rand(45, 110);
+        const m      = 34;
         const x = Math.max(m, Math.min(W - m, parent.x + Math.cos(ang) * dist));
         const y = Math.max(m, Math.min(H - m, parent.y + Math.sin(ang) * dist));
-        const idx = addNode(x, y, rand(1.6, 3), p);
+        const idx = addNode(x, y, rand(2.2, 5.5), p);   // bigger, always varied sizes
 
         // sometimes wire the new node to its nearest neighbour → loops
         if (Math.random() < EXTRA_LINK_P) {
@@ -85,11 +87,7 @@
                 const dx = nodes[i].x - x, dy = nodes[i].y - y, d = dx * dx + dy * dy;
                 if (d < bd) { bd = d; best = i; }
             }
-            if (best >= 0) {
-                edges.push({ a: best, b: idx, created: now() });
-                nodes[best].deg++;
-                nodes[idx].deg++;
-            }
+            if (best >= 0) addEdge(best, idx);
         }
     }
 
@@ -106,20 +104,36 @@
         ctx.clearRect(0, 0, W, H);
         const t = now();
 
-        // edges (draw-in from parent toward child)
+        // edges — curved, drawn in from parent toward child
         for (const e of edges) {
             const a = nodes[e.a], b = nodes[e.b];
             const ap = Math.min((t - a.born) / NODE_APPEAR, 1);
             const bp = Math.min((t - b.born) / NODE_APPEAR, 1);
             const gp = easeOut(Math.min((t - e.created) / EDGE_GROW, 1));
-            const ex = a.x + (b.x - a.x) * gp;
-            const ey = a.y + (b.y - a.y) * gp;
-            const alpha = 0.16 * Math.min(ap, bp);
-            ctx.strokeStyle = `rgba(205,228,240,${alpha})`;
+
+            const dx = b.x - a.x, dy = b.y - a.y;
+            const len = Math.hypot(dx, dy) || 1;
+            const nx = -dy / len, ny = dx / len;                 // unit normal
+            const cx = (a.x + b.x) / 2 + nx * len * e.curv;      // bezier control
+            const cy = (a.y + b.y) / 2 + ny * len * e.curv;
+
+            ctx.strokeStyle = `rgba(205,228,240,${0.15 * Math.min(ap, bp)})`;
             ctx.lineWidth = 0.8;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
-            ctx.lineTo(ex, ey);
+            if (gp >= 1) {
+                ctx.quadraticCurveTo(cx, cy, b.x, b.y);
+            } else {
+                const seg = 14;
+                for (let i = 1; i <= seg; i++) {
+                    const tt = gp * i / seg;
+                    const u = 1 - tt;
+                    ctx.lineTo(
+                        u * u * a.x + 2 * u * tt * cx + tt * tt * b.x,
+                        u * u * a.y + 2 * u * tt * cy + tt * tt * b.y
+                    );
+                }
+            }
             ctx.stroke();
         }
 
@@ -128,9 +142,9 @@
             const p = easeOut(Math.min((t - n.born) / NODE_APPEAR, 1));
             const r = n.r * p;
             if (r <= 0.05) continue;
-            if (n.deg >= 4) {
+            if (n.deg >= 5) {
                 ctx.beginPath();
-                ctx.arc(n.x, n.y, r + 3, 0, Math.PI * 2);
+                ctx.arc(n.x, n.y, r + 3.5, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(120,190,210,${0.06 * p})`;
                 ctx.fill();
             }
@@ -152,7 +166,7 @@
         if (growthTimer) clearInterval(growthTimer);
         nodes.length = 0;
         edges.length = 0;
-        addNode(W / 2, H / 2, 4.2, null);        // the central node, first
+        addNode(W / 2, H / 2, 7, null);          // the central node, first
         growthTimer = setInterval(grow, GROWTH_MS);
         loop();
     }
@@ -162,7 +176,7 @@
     if (reduce) {
         // Build the full graph instantly, no motion
         nodes.length = 0; edges.length = 0;
-        addNode(W / 2, H / 2, 4.2, null);
+        addNode(W / 2, H / 2, 7, null);
         while (nodes.length < TARGET) grow();
         const past = now() - 3000;
         nodes.forEach(n => { n.born = past; n.vx = n.vy = 0; });
