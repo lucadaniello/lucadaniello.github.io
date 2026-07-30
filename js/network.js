@@ -1,9 +1,10 @@
 /* ============================================================
    Hero network — a growing graph.
-   A central node appears first, then nodes are added one by one
-   and link into the graph with curved connections drawn as they
-   form, so it looks like a network being built. Once grown, the
-   nodes drift gently to keep the background alive.
+   A central node appears first, then nodes appear spread across
+   the whole area (kept apart from one another) and link to their
+   nearest neighbour with a curved connection drawn as it forms,
+   so the network builds up evenly instead of clumping. Once
+   grown, the nodes drift gently to keep the background alive.
    ============================================================ */
 (function () {
     const canvas = document.getElementById('hero-canvas');
@@ -14,14 +15,15 @@
                    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // ── tuning ──────────────────────────────────────────────
-    const TARGET       = 300;   // final number of nodes
-    const GROWTH_MS     = 65;    // cadence of new nodes (moderate build)
+    const TARGET       = 110;   // final number of nodes
+    const GROWTH_MS     = 95;    // cadence of new nodes (moderate build)
     const NODE_APPEAR   = 500;   // node fade/scale-in (ms)
     const EDGE_GROW     = 450;   // edge draw-in (ms)
-    const EXTRA_LINK_P  = 0.3;   // chance of an extra mesh link
-    const MAX_LINK_DIST = 150;   // px for the extra mesh link
-    const DRIFT         = 0.16;  // idle drift speed
-    const CURVE         = 0.22;  // max edge curvature
+    const SPREAD_TRIES  = 16;    // candidates per node → pick the most isolated
+    const SECOND_LINK_D = 170;   // px, optional 2nd link for mesh loops
+    const SECOND_LINK_P = 0.5;
+    const DRIFT         = 0.12;  // idle drift speed
+    const CURVE         = 0.2;   // max edge curvature
 
     let W, H, dpr, raf, growthTimer;
     const nodes = [];
@@ -46,23 +48,25 @@
         nodes[b].deg++;
     }
 
-    function addNode(x, y, r, parentIdx) {
+    function addNode(x, y, r) {
         nodes.push({ x, y, vx: rand(-DRIFT, DRIFT), vy: rand(-DRIFT, DRIFT), r, born: now(), deg: 0 });
-        const idx = nodes.length - 1;
-        if (parentIdx != null) addEdge(parentIdx, idx);
-        return idx;
+        return nodes.length - 1;
     }
 
-    // Preferential attachment → a few natural hubs
-    function pickParent() {
-        let total = 0;
-        for (const n of nodes) total += n.deg + 1;
-        let r = Math.random() * total;
-        for (let i = 0; i < nodes.length; i++) {
-            r -= nodes[i].deg + 1;
-            if (r <= 0) return i;
+    // Pick a point that is as far as possible from existing nodes → even spread
+    function spreadPoint() {
+        const m = 40;
+        let best = null, bestD = -1;
+        for (let k = 0; k < SPREAD_TRIES; k++) {
+            const x = rand(m, W - m), y = rand(m, H - m);
+            let nd = Infinity;
+            for (const n of nodes) {
+                const dx = n.x - x, dy = n.y - y, d = dx * dx + dy * dy;
+                if (d < nd) nd = d;
+            }
+            if (nd > bestD) { bestD = nd; best = { x, y }; }
         }
-        return nodes.length - 1;
+        return best;
     }
 
     function grow() {
@@ -70,25 +74,18 @@
             if (growthTimer) { clearInterval(growthTimer); growthTimer = null; }
             return;
         }
-        const p      = pickParent();
-        const parent = nodes[p];
-        const ang    = rand(0, Math.PI * 2);
-        const dist   = rand(45, 110);
-        const m      = 34;
-        const x = Math.max(m, Math.min(W - m, parent.x + Math.cos(ang) * dist));
-        const y = Math.max(m, Math.min(H - m, parent.y + Math.sin(ang) * dist));
-        const idx = addNode(x, y, rand(2.2, 5.5), p);   // bigger, always varied sizes
+        const p = spreadPoint();
+        const idx = addNode(p.x, p.y, rand(2.2, 5.5));   // bigger, always varied sizes
 
-        // sometimes wire the new node to its nearest neighbour → loops
-        if (Math.random() < EXTRA_LINK_P) {
-            let best = -1, bd = MAX_LINK_DIST * MAX_LINK_DIST;
-            for (let i = 0; i < nodes.length - 1; i++) {
-                if (i === p) continue;
-                const dx = nodes[i].x - x, dy = nodes[i].y - y, d = dx * dx + dy * dy;
-                if (d < bd) { bd = d; best = i; }
-            }
-            if (best >= 0) addEdge(best, idx);
+        // link to the two nearest existing nodes
+        let n1 = -1, d1 = Infinity, n2 = -1, d2 = Infinity;
+        for (let i = 0; i < nodes.length - 1; i++) {
+            const dx = nodes[i].x - p.x, dy = nodes[i].y - p.y, d = dx * dx + dy * dy;
+            if (d < d1) { d2 = d1; n2 = n1; d1 = d; n1 = i; }
+            else if (d < d2) { d2 = d; n2 = i; }
         }
+        if (n1 >= 0) addEdge(n1, idx);
+        if (n2 >= 0 && d2 < SECOND_LINK_D * SECOND_LINK_D && Math.random() < SECOND_LINK_P) addEdge(n2, idx);
     }
 
     function update() {
@@ -104,7 +101,7 @@
         ctx.clearRect(0, 0, W, H);
         const t = now();
 
-        // edges — curved, drawn in from parent toward child
+        // edges — curved, drawn in from the existing node toward the new one
         for (const e of edges) {
             const a = nodes[e.a], b = nodes[e.b];
             const ap = Math.min((t - a.born) / NODE_APPEAR, 1);
@@ -142,7 +139,7 @@
             const p = easeOut(Math.min((t - n.born) / NODE_APPEAR, 1));
             const r = n.r * p;
             if (r <= 0.05) continue;
-            if (n.deg >= 5) {
+            if (n.deg >= 4) {
                 ctx.beginPath();
                 ctx.arc(n.x, n.y, r + 3.5, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(120,190,210,${0.06 * p})`;
@@ -166,7 +163,7 @@
         if (growthTimer) clearInterval(growthTimer);
         nodes.length = 0;
         edges.length = 0;
-        addNode(W / 2, H / 2, 7, null);          // the central node, first
+        addNode(W / 2, H / 2, 7);                 // the central node, first
         growthTimer = setInterval(grow, GROWTH_MS);
         loop();
     }
@@ -176,7 +173,7 @@
     if (reduce) {
         // Build the full graph instantly, no motion
         nodes.length = 0; edges.length = 0;
-        addNode(W / 2, H / 2, 7, null);
+        addNode(W / 2, H / 2, 7);
         while (nodes.length < TARGET) grow();
         const past = now() - 3000;
         nodes.forEach(n => { n.born = past; n.vx = n.vy = 0; });
