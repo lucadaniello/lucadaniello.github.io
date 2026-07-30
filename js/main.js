@@ -421,3 +421,33 @@ if (researchTabs.length) {
     yearSelect.addEventListener('change', apply);
     searchInput.addEventListener('input', apply);
 })();
+
+/* ── Latest News: center when few, scroll when they overflow ── */
+(function initNewsCarousel() {
+    const viewport = document.querySelector('.news-viewport');
+    const track    = document.getElementById('newsTrack');
+    if (!viewport || !track) return;
+
+    const originals = [...track.children];
+
+    function setup() {
+        track.classList.remove('marquee');
+        track.querySelectorAll('[data-clone]').forEach(n => n.remove());
+
+        // Overflowing → clone the set for a seamless loop and start scrolling
+        if (track.scrollWidth > viewport.clientWidth + 1) {
+            originals.forEach(node => {
+                const clone = node.cloneNode(true);
+                clone.setAttribute('data-clone', '');
+                clone.setAttribute('aria-hidden', 'true');
+                clone.setAttribute('tabindex', '-1');
+                track.appendChild(clone);
+            });
+            track.classList.add('marquee');
+        }
+    }
+
+    setup();
+    let t;
+    window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(setup, 200); });
+})();

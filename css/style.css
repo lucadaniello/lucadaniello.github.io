@@ -1833,34 +1833,9 @@ ul { list-style: none; }
    NEW COMPONENTS
    ============================================================ */
 
-/* ── Hero falling icons ────────────────────────────────────── */
-.hero-falling {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1;
-}
+/* ── Hero network canvas layering ─────────────────────────── */
 .hero-container { position: relative; z-index: 2; }
 .scroll-hint    { position: relative; z-index: 2; }
-.falling-icon {
-    position: absolute;
-    top: -60px;
-    will-change: transform, opacity;
-    opacity: 0;
-    animation-name: iconFall;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-}
-@keyframes iconFall {
-    0%   { opacity: 0; transform: translateY(0) rotate(0deg); }
-    8%   { opacity: var(--peak, .55); }
-    92%  { opacity: var(--peak, .55); }
-    100% { opacity: 0; transform: translateY(var(--fall, 100vh)) rotate(var(--spin, 90deg)); }
-}
-@media (prefers-reduced-motion: reduce) {
-    .hero-falling { display: none; }
-}
 
 /* ── Latest news carousel (homepage hero) ─────────────────── */
 .latest-news {
@@ -1906,11 +1881,19 @@ ul { list-style: none; }
 .news-track {
     display: flex;
     gap: 18px;
-    width: max-content;
     padding: 4px 24px;
+    width: max-content;
+    max-width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+}
+.news-track.marquee {
+    max-width: none;
+    margin: 0;
+    justify-content: flex-start;
     animation: newsScroll 42s linear infinite;
 }
-.news-viewport:hover .news-track { animation-play-state: paused; }
+.news-viewport:hover .news-track.marquee { animation-play-state: paused; }
 @keyframes newsScroll {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
