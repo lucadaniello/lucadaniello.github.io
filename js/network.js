@@ -35,8 +35,12 @@
 
     function resize() {
         dpr = Math.min(window.devicePixelRatio || 1, 2);
-        W = canvas.offsetWidth;
-        H = canvas.offsetHeight;
+        const hero   = canvas.parentElement;               // .hero
+        const banner = hero.querySelector('.hero-container');
+        // Confine the network to the name/photo banner, not the whole (tall) hero
+        W = hero.offsetWidth;
+        H = banner ? (banner.offsetTop + banner.offsetHeight) : hero.offsetHeight;
+        canvas.style.height = H + 'px';
         canvas.width  = W * dpr;
         canvas.height = H * dpr;
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
