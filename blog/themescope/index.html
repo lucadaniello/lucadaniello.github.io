@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ThemeScope — a quantitative thematic analysis for depicting social representations in digital arenas, published in Journal of Information Science.">
+    <title>ThemeScope | Blog · Luca D'Aniello</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+</head>
+<body class="inner-page">
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-brand">Luca D'Aniello</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../research.html" class="nav-link">Research</a></li>
+                <li><a href="../../software.html" class="nav-link">Software</a></li>
+                <li><a href="../../teaching.html" class="nav-link">Teaching</a></li>
+                <li><a href="../../outreach.html" class="nav-link">Outreach</a></li>
+                <li><a href="../../blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="../../contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header-bg"></div>
+        <div class="container">
+            <span class="page-tag reveal-up">New Publication</span>
+            <h1 class="page-title reveal-up delay-1">ThemeScope</h1>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="article-wrap reveal-up">
+                <a href="../../blog.html" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+
+                <div class="article-meta">
+                    <span><i class="far fa-calendar"></i> July 2026</span>
+                    <span><i class="fas fa-book-open"></i> Journal of Information Science · SAGE</span>
+                    <span><i class="fas fa-users"></i> Misuraca, M., Spano, M., D'Aniello, L.</span>
+                </div>
+
+                <div class="article-cover cover-themescope">
+                    <i class="fas fa-diagram-project"></i>
+                </div>
+
+                <div class="article-body">
+                    <p>I'm glad to share that our paper <em>"ThemeScope: A quantitative thematic analysis for depicting social representations in digital arenas"</em> has been published in <strong>Journal of Information Science</strong> (SAGE), co-authored with Michelangelo Misuraca and Maria Spano.</p>
+
+                    <p>ThemeScope is a quantitative approach designed to detect and visualise <strong>social representations</strong> — the shared systems of meaning that circulate in large-scale digital text — directly from the words people use online. Rather than relying on manual coding, it turns a corpus of documents into an interpretable map of themes.</p>
+
+                    <h2>How it works</h2>
+                    <p>The method reconstructs meaning from language through a transparent pipeline: it annotates the text, builds a <strong>sentence-level word co-occurrence network</strong>, and identifies thematic communities within it. Each theme is then positioned on a <strong>strategic diagram</strong> using two indicators grounded in Social Representation Theory:</p>
+                    <ul>
+                        <li><strong>Prototypical Salience Index (PSI)</strong> — captures how structurally central and frequent a theme is (its <em>anchoring</em> in the collective representation).</li>
+                        <li><strong>Concreteness Score (CS)</strong> — measures how concrete and imageable a theme's vocabulary is (its <em>objectification</em>).</li>
+                    </ul>
+
+                    <h2>The themescopeR package</h2>
+                    <p>The approach is fully implemented in the open-source R package <strong>themescopeR</strong>, which covers the whole workflow — from importing documents (CSV, XLSX, TXT, ZIP) and linguistic annotation, to community detection (walktrap, Louvain, Leiden), computation of the PSI and CS indicators, and visualisation of strategic diagrams and networks — either from the console or through an optional Shiny interface.</p>
+
+                    <div class="article-callout">
+                        <p class="cite"><strong>Cite:</strong> Misuraca, M., Spano, M., &amp; D'Aniello, L. ThemeScope: A quantitative thematic analysis for depicting social representations in digital arenas. <em>Journal of Information Science</em>. DOI: 10.1177/01655515261454276</p>
+                    </div>
+
+                    <div class="article-actions">
+                        <a href="https://journals.sagepub.com/doi/abs/10.1177/01655515261454276" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Read the paper</a>
+                        <a href="https://github.com/lucadaniello/themescopeR" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-github"></i> themescopeR on GitHub</a>
+                        <a href="../../software.html" class="btn btn-outline"><i class="fas fa-cube"></i> Software page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-name">Luca D'Aniello</p>
+                <p class="footer-sub">Assistant Professor (RTD-A) · University of Naples Federico II<br>
+                <a href="mailto:luca.daniello@unina.it">luca.daniello@unina.it</a></p>
+                <p class="footer-copy">&copy; <span class="year"></span> Luca D'Aniello</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>

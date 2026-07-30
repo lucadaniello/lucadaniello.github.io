@@ -341,3 +341,83 @@ if (researchTabs.length) {
     window.addEventListener('scroll', updateTabs, { passive: true });
     updateTabs();
 }
+
+/* ── Publications: filter chips + search + year dropdown ───── */
+(function initPubFilters() {
+    const controls = document.getElementById('pubControls');
+    if (!controls) return;
+
+    const pubSection = document.getElementById('publications');
+    const yearSelect = document.getElementById('pubYear');
+    const searchInput = document.getElementById('pubSearch');
+    const emptyMsg   = document.getElementById('pubEmpty');
+    const filterBtns = controls.querySelectorAll('.pub-filter');
+
+    // Map subsection heading → type
+    const TYPE_BY_TITLE = {
+        'scientific articles':        'journal',
+        'books & monographs':         'book',
+        'conference proceedings':     'conference',
+        'working papers & preprints': 'preprint'
+    };
+
+    const subsections = [...pubSection.querySelectorAll('.subsection')];
+    const years = new Set();
+
+    subsections.forEach(sub => {
+        const titleEl = sub.querySelector('.subsection-title');
+        const title = (titleEl?.textContent || '').trim().toLowerCase();
+        const type = TYPE_BY_TITLE[title] || 'other';
+        sub.dataset.group = type;
+        sub.querySelectorAll('.pub-card').forEach(card => {
+            const year = (card.querySelector('.pub-year')?.textContent || '').trim();
+            card.dataset.pubtype = type;
+            card.dataset.pubyear = year;
+            card.dataset.searchtext = (card.textContent || '').toLowerCase();
+            if (year) years.add(year);
+        });
+    });
+
+    // Populate year dropdown (desc)
+    [...years].sort((a, b) => b - a).forEach(y => {
+        const opt = document.createElement('option');
+        opt.value = y;
+        opt.textContent = y;
+        yearSelect.appendChild(opt);
+    });
+
+    let activeFilter = 'all';
+
+    function apply() {
+        const year  = yearSelect.value;
+        const query = (searchInput.value || '').trim().toLowerCase();
+        let totalVisible = 0;
+
+        subsections.forEach(sub => {
+            let groupVisible = 0;
+            sub.querySelectorAll('.pub-card').forEach(card => {
+                const okType   = activeFilter === 'all' || card.dataset.pubtype === activeFilter;
+                const okYear   = year === 'all' || card.dataset.pubyear === year;
+                const okSearch = !query || card.dataset.searchtext.includes(query);
+                const show = okType && okYear && okSearch;
+                card.classList.toggle('is-hidden', !show);
+                if (show) { card.classList.add('visible'); groupVisible++; }
+            });
+            sub.classList.toggle('is-hidden', groupVisible === 0);
+            totalVisible += groupVisible;
+        });
+
+        if (emptyMsg) emptyMsg.style.display = totalVisible === 0 ? 'block' : 'none';
+    }
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeFilter = btn.dataset.filter;
+            apply();
+        });
+    });
+    yearSelect.addEventListener('change', apply);
+    searchInput.addEventListener('input', apply);
+})();

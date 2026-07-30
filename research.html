@@ -25,6 +25,7 @@
                 <li><a href="software.html" class="nav-link">Software</a></li>
                 <li><a href="teaching.html" class="nav-link">Teaching</a></li>
                 <li><a href="outreach.html" class="nav-link">Outreach</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -53,7 +54,7 @@
                 </div>
                 <div class="stats-sep"></div>
                 <div class="stats-block">
-                    <span class="stat-num" data-target="657">0</span>
+                    <span class="stat-num" data-target="757">0</span>
                     <span class="stat-label">Citations</span>
                 </div>
                 <div class="stats-sep stats-sep-right"></div>
@@ -75,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <p class="stats-source">Metrics updated May 2026</p>
+            <p class="stats-source">Metrics updated July 2026</p>
         </div>
     </div>
 
@@ -94,7 +95,6 @@
     <section id="research-areas" class="section">
         <div class="container">
             <div class="section-header reveal-up">
-                <span class="section-tag">Overview</span>
                 <h2 class="section-title">Research Areas &amp; Interests</h2>
             </div>
             <div class="research-areas-grid">
@@ -110,7 +110,7 @@
                 </div>
                 <div class="research-area-card reveal-up delay-2">
                     <div class="ra-icon"><i class="fas fa-hospital"></i></div>
-                    <h3>Academic Health Centers</h3>
+                    <h3>Statistics for Healthcare</h3>
                     <p>Evaluation of the scientific productivity, governance, and healthcare performance of Italian public Academic Medical Centers (AHSCs) using bibliometric and statistical indicators.</p>
                 </div>
                 <div class="research-area-card reveal-up delay-3">
@@ -147,12 +147,44 @@
                 <h2 class="section-title">Scientific Publications</h2>
             </div>
 
+            <div class="pub-controls reveal-up" id="pubControls">
+                <div class="pub-filters">
+                    <button class="pub-filter active" data-filter="all">All</button>
+                    <button class="pub-filter" data-filter="journal">Journals</button>
+                    <button class="pub-filter" data-filter="conference">Conferences</button>
+                    <button class="pub-filter" data-filter="book">Books</button>
+                    <button class="pub-filter" data-filter="preprint">Pre-prints</button>
+                </div>
+                <div class="pub-year-wrap">
+                    <select class="pub-year-select" id="pubYear" aria-label="Filter by year">
+                        <option value="all">All years</option>
+                    </select>
+                </div>
+            </div>
+            <div class="pub-search-wrap reveal-up">
+                <i class="fas fa-magnifying-glass"></i>
+                <input type="search" class="pub-search" id="pubSearch" placeholder="Search by title, author, venue…" aria-label="Search publications">
+            </div>
+            <p class="pub-empty" id="pubEmpty"><i class="fas fa-circle-info"></i> No publications match your filters.</p>
+
             <!-- Scientific Articles -->
             <div class="subsection">
                 <div class="subsection-header reveal-up">
                     <h3 class="subsection-title">Scientific Articles</h3>
                 </div>
                 <div class="pub-list">
+
+                    <!-- ThemeScope -->
+                    <div class="pub-card reveal-up">
+                        <div class="pub-year">2026</div>
+                        <div class="pub-body">
+                            <div class="pub-badges"><span class="badge badge-journal">Journal</span><span class="badge badge-preprint">In press</span></div>
+                            <h4 class="pub-title">ThemeScope: A quantitative thematic analysis for depicting social representations in digital arenas</h4>
+                            <p class="pub-meta">Misuraca, M., Spano, M., &amp; <strong>D'Aniello, L.</strong></p>
+                            <p class="pub-venue"><em>Journal of Information Science</em> · SAGE · DOI: 10.1177/01655515261454276</p>
+                            <a href="https://journals.sagepub.com/doi/abs/10.1177/01655515261454276" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
 
                     <!-- TALL -->
                     <div class="pub-card reveal-up">
@@ -642,16 +674,6 @@
                             <h4 class="pub-title">Semantic Pathways to Knowledge: Analyzing Scientific Texts Beyond Metrics</h4>
                             <p class="pub-meta"><strong>D'Aniello, L.</strong>, Robinson-Garcia, N., Aria, M., &amp; Cuccurullo, C.</p>
                             <p class="pub-venue">Pre-print available in arXiv:2407.1864</p>
-                        </div>
-                    </div>
-
-                    <div class="pub-card reveal-up">
-                        <div class="pub-year">2025</div>
-                        <div class="pub-body">
-                            <div class="pub-badges"><span class="badge badge-preprint">Under Review</span></div>
-                            <h4 class="pub-title">ThemeScope: A quantitative thematic analysis for depicting social representations in digital arenas</h4>
-                            <p class="pub-meta">Misuraca, M., Spano, M., <strong>D'Aniello, L.</strong></p>
-                            <p class="pub-venue"><em>Journal of Information Science</em> · SAGE Publications (under review)</p>
                         </div>
                     </div>
 

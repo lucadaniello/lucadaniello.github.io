@@ -25,13 +25,13 @@
                 <li><a href="software.html" class="nav-link">Software</a></li>
                 <li><a href="teaching.html" class="nav-link">Teaching</a></li>
                 <li><a href="outreach.html" class="nav-link">Outreach</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="hero">
-        <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
         <div class="hero-bg-pattern"></div>
         <div class="hero-container">
 
@@ -87,8 +87,74 @@
 
         </div>
 
-        <a href="#about" class="scroll-hint" aria-label="Learn more">
-            <span>Learn more</span>
+        <!-- Latest News -->
+        <div class="latest-news reveal-up">
+            <div class="latest-news-head">
+                <span class="latest-news-label"><i class="fas fa-bullhorn"></i> Latest News</span>
+                <a href="blog.html" class="latest-news-all">View all <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="news-viewport">
+                <div class="news-track" id="newsTrack">
+
+                    <a href="blog/themescope/" class="news-card">
+                        <div class="news-cover cover-themescope">
+                            <span class="news-cover-tag">J. of Information Science</span>
+                            <i class="fas fa-diagram-project"></i>
+                        </div>
+                        <div class="news-body">
+                            <span class="news-date"><i class="far fa-calendar"></i> Jul 2026</span>
+                            <span class="news-title">ThemeScope: mapping social representations in digital arenas</span>
+                            <span class="news-excerpt">A new quantitative thematic-analysis method — and the themescopeR package — published in Journal of Information Science.</span>
+                            <span class="news-more">Read more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="blog/biblioshiny-saas/" class="news-card">
+                        <div class="news-cover cover-biblio">
+                            <span class="news-cover-tag">J. of Informetrics</span>
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="news-body">
+                            <span class="news-date"><i class="far fa-calendar"></i> 2026</span>
+                            <span class="news-title">Biblioshiny &amp; the SAAS Workflow</span>
+                            <span class="news-excerpt">A framework for transparent and reproducible science mapping, demonstrated by replicating a study — in Journal of Informetrics.</span>
+                            <span class="news-more">Read more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- duplicated set for seamless looping -->
+                    <a href="blog/themescope/" class="news-card" aria-hidden="true" tabindex="-1">
+                        <div class="news-cover cover-themescope">
+                            <span class="news-cover-tag">J. of Information Science</span>
+                            <i class="fas fa-diagram-project"></i>
+                        </div>
+                        <div class="news-body">
+                            <span class="news-date"><i class="far fa-calendar"></i> Jul 2026</span>
+                            <span class="news-title">ThemeScope: mapping social representations in digital arenas</span>
+                            <span class="news-excerpt">A new quantitative thematic-analysis method — and the themescopeR package — published in Journal of Information Science.</span>
+                            <span class="news-more">Read more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="blog/biblioshiny-saas/" class="news-card" aria-hidden="true" tabindex="-1">
+                        <div class="news-cover cover-biblio">
+                            <span class="news-cover-tag">J. of Informetrics</span>
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="news-body">
+                            <span class="news-date"><i class="far fa-calendar"></i> 2026</span>
+                            <span class="news-title">Biblioshiny &amp; the SAAS Workflow</span>
+                            <span class="news-excerpt">A framework for transparent and reproducible science mapping, demonstrated by replicating a study — in Journal of Informetrics.</span>
+                            <span class="news-more">Read more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <a href="#about" class="scroll-hint" aria-label="Biosketch">
+            <span>Biosketch</span>
             <i class="fas fa-chevron-down"></i>
         </a>
     </section>
