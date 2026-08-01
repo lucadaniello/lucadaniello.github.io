@@ -2161,6 +2161,35 @@ ul { list-style: none; }
 }
 .back-to-blog:hover { gap: 12px; }
 
+/* ── Image covers (document banners vs. photos) ───────────── */
+.news-cover.cover-doc, .blog-cover.cover-doc, .article-cover.cover-doc { background: #fff; }
+.news-cover.cover-doc img, .blog-cover.cover-doc img, .article-cover.cover-doc img { object-fit: contain; }
+.news-cover.cover-photo, .blog-cover.cover-photo, .article-cover.cover-photo { background: #0f172a; }
+.news-cover.cover-photo img, .blog-cover.cover-photo img, .article-cover.cover-photo img { object-fit: cover; }
+
+/* ── In-article figures ───────────────────────────────────── */
+.article-fig { margin: 30px 0; }
+.article-fig img {
+    width: 100%;
+    display: block;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: #fff;
+}
+.article-fig figcaption {
+    font-size: .82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-top: 10px;
+    text-align: center;
+}
+.article-fig.logo-fig img {
+    max-width: 190px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 0;
+}
+
 /* ── Publication controls (filters + search + year) ───────── */
 .pub-controls {
     display: flex;

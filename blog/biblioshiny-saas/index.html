@@ -45,14 +45,14 @@
                 <a href="../../blog.html" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
 
                 <div class="article-meta">
-                    <span><i class="far fa-calendar"></i> 2026</span>
+                    <span><i class="far fa-calendar"></i> 1 June 2026</span>
                     <span><i class="fas fa-book-open"></i> Journal of Informetrics · Elsevier</span>
                     <span><i class="fas fa-users"></i> Aria, M., Cuccurullo, C., D'Aniello, L., Spano, M.</span>
                     <span><i class="fas fa-fingerprint"></i> DOI: 10.1016/j.joi.2026.101837</span>
                 </div>
 
-                <div class="article-cover cover-biblio">
-                    <i class="fas fa-desktop"></i>
+                <div class="article-cover cover-doc">
+                    <img src="../../assets/blog/biblioshiny-cover.png" alt="Biblioshiny and the SAAS Workflow — Journal of Informetrics">
                 </div>
 
                 <div class="article-body">
@@ -60,8 +60,21 @@
 
                     <p>Science mapping is now widely used to review and structure scientific literature, but the analytical choices behind a map are often hard to trace and even harder to reproduce. This paper addresses that gap by framing the whole analysis as a structured, documented <strong>workflow</strong> built on top of <strong>Biblioshiny</strong>, the no-code, web-based interface of the <em>bibliometrix</em> R package.</p>
 
-                    <h2>A transparent, reproducible workflow</h2>
-                    <p>The framework organises a science-mapping study into explicit, sequential stages, so that every decision, from data collection and cleaning to the choice of units, networks, and indicators, is made visible and repeatable. The goal is to let readers understand exactly how a result was produced and to reproduce it end to end.</p>
+                    <h2>The SAAS workflow</h2>
+                    <p>At the core of the paper is the <strong>SAAS workflow</strong>, a four-stage protocol that turns a science-mapping study into an explicit, sequential, and fully documented process: <strong>Search</strong> (data acquisition), <strong>Appraisal</strong> (filtering and refining), <strong>Analysis</strong> (descriptive analysis of authors, sources, and documents), and <strong>Synthesis</strong> (building the conceptual, intellectual, and social knowledge structures). Framing the analysis this way makes every decision, from data collection and cleaning to the choice of units, networks, and indicators, visible and repeatable, so that readers can understand exactly how a result was produced and reproduce it end to end.</p>
+
+                    <figure class="article-fig">
+                        <img src="../../assets/blog/saas-workflow.png" alt="The SAAS workflow: Search, Appraisal, Analysis, Synthesis">
+                        <figcaption>The SAAS workflow — Search, Appraisal, Analysis, and Synthesis — structuring a science-mapping study into transparent, reproducible stages.</figcaption>
+                    </figure>
+
+                    <h2>Everything runs in Biblioshiny</h2>
+                    <p>The whole workflow is carried out in <strong>Biblioshiny</strong>, the no-code, web-based interface of the <em>bibliometrix</em> R package. Biblioshiny lets researchers import data from Web of Science, Scopus, PubMed, and other sources, and move through the SAAS stages, appraisal, descriptive analysis, and the construction of knowledge structures, entirely through a graphical interface, with no programming required.</p>
+
+                    <figure class="article-fig">
+                        <img src="../../assets/blog/biblioshiny-app.png" alt="The Biblioshiny web interface, the shiny app for bibliometrix">
+                        <figcaption>Biblioshiny, the Shiny app for bibliometrix, now featuring Biblio AI, an assistant for science mapping.</figcaption>
+                    </figure>
 
                     <h2>Learning by replication</h2>
                     <p>To show the workflow in practice, the paper <strong>replicates an existing study</strong> step by step, reconstructing its analyses within Biblioshiny and discussing where and why choices matter. The replication doubles as a hands-on demonstration of how transparent, reproducible science mapping can be carried out without programming.</p>

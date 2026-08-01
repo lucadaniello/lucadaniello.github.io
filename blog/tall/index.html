@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TALL: Text Analysis for All — our interactive R-Shiny application for exploring, modeling, and visualizing textual data, published in SoftwareX.">
+    <title>TALL in SoftwareX | Blog · Luca D'Aniello</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+</head>
+<body class="inner-page">
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-brand">Luca D'Aniello</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../research.html" class="nav-link">Research</a></li>
+                <li><a href="../../software.html" class="nav-link">Software</a></li>
+                <li><a href="../../teaching.html" class="nav-link">Teaching</a></li>
+                <li><a href="../../outreach.html" class="nav-link">Outreach</a></li>
+                <li><a href="../../blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="../../contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header-bg"></div>
+        <div class="container">
+            <span class="page-tag reveal-up">New Publication</span>
+            <h1 class="page-title reveal-up delay-1">TALL: Text Analysis for All</h1>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="article-wrap reveal-up">
+                <a href="../../blog.html" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+
+                <div class="article-meta">
+                    <span><i class="far fa-calendar"></i> July 2026</span>
+                    <span><i class="fas fa-book-open"></i> SoftwareX · Elsevier</span>
+                    <span><i class="fas fa-users"></i> Aria, M., Spano, M., D'Aniello, L., Cuccurullo, C., Misuraca, M.</span>
+                </div>
+
+                <div class="article-cover cover-doc">
+                    <img src="../../assets/blog/tall-cover.png" alt="TALL: Text analysis for all — an interactive R-shiny application, published in SoftwareX">
+                </div>
+
+                <div class="article-body">
+                    <p>Over a year of hard work went into designing, building, and structuring a text-data-analysis tool accessible to everyone. Following our release on CRAN, the response has been incredible, and I'm super happy to announce that our official paper on <strong>TALL</strong> is finally out. Published in <strong>SoftwareX</strong> (Elsevier), this milestone is the result of a great research synergy with my co-authors and the brilliant software developers: Massimo Aria, Maria Spano, Corrado Cuccurullo, and Michelangelo Misuraca.</p>
+
+                    <p><strong>TALL</strong> (Text Analysis for All) is an interactive <strong>R-Shiny application</strong> for exploring, modeling, and visualizing textual data, designed so that rigorous quantitative and qualitative text analysis is within reach of everyone, without requiring any coding skills.</p>
+
+                    <h2>A workflow for all</h2>
+                    <p>In the paper, we present the app by walking through its <strong>core workflow</strong>, a robust framework designed to support a huge variety of options and advanced text-analysis features. The pipeline guides the user from importing and editing the text, through pre-processing, filtering, and grouping, all the way to reporting, and to dedicated modules for documents, words, and corpus overview, including topic modeling, co-occurrence networks, and lexical measures.</p>
+
+                    <figure class="article-fig">
+                        <img src="../../assets/blog/tall-workflow.png" alt="The TALL workflow: import, edit, pre-processing, group text, reporting, documents, words, and overview modules">
+                        <figcaption>The TALL workflow — from importing and pre-processing text to reporting and advanced analysis of documents, words, and corpus overview.</figcaption>
+                    </figure>
+
+                    <h2>Try it out</h2>
+                    <p>Try it out, test it, and play around with it. Most importantly, we'd love to hear your feedback so we can keep improving TALL and integrating new possibilities into the app.</p>
+
+                    <figure class="article-fig logo-fig">
+                        <a href="https://www.tall-app.com" target="_blank" rel="noopener">
+                            <img src="../../loghi/tall.png" alt="TALL logo">
+                        </a>
+                        <figcaption><a href="https://www.tall-app.com" target="_blank" rel="noopener">tall-app.com</a></figcaption>
+                    </figure>
+
+                    <div class="article-actions">
+                        <a href="https://www.tall-app.com" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-globe"></i> Visit tall-app.com</a>
+                        <a href="https://cran.r-project.org/package=TALL" target="_blank" rel="noopener" class="btn btn-outline"><i class="fas fa-download"></i> TALL on CRAN</a>
+                        <a href="../../software.html" class="btn btn-outline"><i class="fas fa-cube"></i> Software page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-name">Luca D'Aniello</p>
+                <p class="footer-sub">Assistant Professor (RTD-A) · University of Naples Federico II<br>
+                <a href="mailto:luca.daniello@unina.it">luca.daniello@unina.it</a></p>
+                <p class="footer-copy">&copy; <span class="year"></span> Luca D'Aniello</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>
