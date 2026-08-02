@@ -750,7 +750,6 @@ ul { list-style: none; }
     text-align: center;
     flex-shrink: 0;
 }
-.badge-upcoming { background: #ecfdf5; color: #047857; }
 
 /* ── Projects ─────────────────────────────────────────────── */
 .projects-grid {
