@@ -461,6 +461,12 @@ ul { list-style: none; }
     letter-spacing: -.02em;
     line-height: 1.15;
 }
+.section-sub {
+    margin-top: 12px;
+    max-width: 620px;
+    font-size: .93rem;
+    color: var(--text-muted);
+}
 
 /* ── About ────────────────────────────────────────────────── */
 .about-grid {
@@ -667,6 +673,84 @@ ul { list-style: none; }
     gap: 8px;
 }
 .pub-note i { color: var(--blue); }
+
+/* ── Conference tiles ─────────────────────────────────────── */
+.conf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    gap: 18px;
+}
+.conf-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 22px 18px;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    overflow: hidden;
+}
+.conf-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--blue);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+}
+.conf-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: #cbd5e1;
+}
+.conf-card:hover::before { transform: scaleX(1); }
+.conf-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.conf-acronym {
+    font-family: var(--font-serif);
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: .01em;
+}
+.conf-name {
+    font-size: .88rem;
+    line-height: 1.5;
+    color: var(--text-body);
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+.conf-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+}
+.conf-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .8rem;
+    color: var(--text-muted);
+}
+.conf-meta i {
+    color: var(--blue);
+    font-size: .82rem;
+    width: 14px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.badge-upcoming { background: #ecfdf5; color: #047857; }
 
 /* ── Projects ─────────────────────────────────────────────── */
 .projects-grid {
