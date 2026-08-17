@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A multi-phase reference matching algorithm for bibliometric analysis: an unsupervised, ISO 4-aware pipeline to consolidate cited-reference variants, published in Scientometrics.">
+    <title>A multi-phase reference matching algorithm | Blog · Luca D'Aniello</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+</head>
+<body class="inner-page">
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-brand">Luca D'Aniello</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../research.html" class="nav-link">Research</a></li>
+                <li><a href="../../software.html" class="nav-link">Software</a></li>
+                <li><a href="../../teaching.html" class="nav-link">Teaching</a></li>
+                <li><a href="../../outreach.html" class="nav-link">Outreach</a></li>
+                <li><a href="../../blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="../../contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header-bg"></div>
+        <div class="container">
+            <span class="page-tag reveal-up">New Publication</span>
+            <h1 class="page-title reveal-up delay-1">Reference Matching</h1>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="article-wrap reveal-up">
+                <a href="../../blog.html" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+
+                <div class="article-meta">
+                    <span><i class="far fa-calendar"></i> 8 August 2026</span>
+                    <span><i class="fas fa-book-open"></i> Scientometrics · Springer</span>
+                    <span><i class="fas fa-users"></i> Aria, M., D'Aniello, L., Spano, M.</span>
+                </div>
+
+                <div class="article-cover cover-doc">
+                    <img src="../../assets/blog/refmatch-cover.png" alt="A multi-phase reference matching algorithm for bibliometric analysis: design, implementation, and evaluation — Scientometrics">
+                </div>
+
+                <div class="article-body">
+                    <p>Out of the blue, in the middle of the summer holidays: our paper <em>"A multi-phase reference matching algorithm for bibliometric analysis: design, implementation, and evaluation"</em> is out in <strong>Scientometrics</strong> (Springer), written together with Massimo Aria and Maria Spano.</p>
+
+                    <p>Every bibliometric indicator we compute, from the h-index to journal impact metrics and citation counts, and every science map we draw, rests on one fragile assumption: that we can tell when two cited-reference strings point to the same paper.</p>
+
+                    <h2>Often, we can't</h2>
+                    <p>The same article shows up as a full journal title, an ISO 4 abbreviation, a proprietary short title, or an ad-hoc truncation. Citations get split across variants, and the fragmentation silently propagates into every downstream measure. It is one of the open debates in the field, and it is rarely visible in the final numbers we all publish.</p>
+
+                    <h2>A seven-phase, unsupervised pipeline</h2>
+                    <p>Our paper proposes an <strong>unsupervised, seven-phase reference matching algorithm</strong> that consolidates these variants with no training data, no external APIs, and no network access.</p>
+
+                    <figure class="article-fig portrait-fig">
+                        <img src="../../assets/blog/refmatch-pipeline.png" alt="The seven phases of the reference matching algorithm: format detection and normalization, ISO 4 journal normalization, exact matching, blocking, fuzzy matching, post-processing merge, and canonical selection">
+                        <figcaption>From raw citation strings to deduplicated clusters with canonical representatives: normalization, matching, indexing, and post-processing.</figcaption>
+                    </figure>
+
+                    <p>The key contribution is that the <strong>ISO 4 List of Title Word Abbreviations (LTWA)</strong> is integrated directly into a reference-matching pipeline. Journal-name variation is the single largest source of fragmentation, and mapping both full titles and abbreviated forms onto one canonical ISO 4 form is what finally makes cross-format matching work. Our ablation study shows that the rest of the pipeline leans heavily on that single step.</p>
+
+                    <h2>What it changes on real data</h2>
+                    <p>The algorithm is deliberately <strong>conservative</strong>, and its effect on real Scopus data is visible exactly where it matters: cited foundational works reclaim the citations that fragmentation had scattered across variants, and co-citation structures come out less fragmented.</p>
+
+                    <p>The Reference Matching algorithm is already implemented in the open-source <strong>bibliometrix</strong> R package and in <strong>Biblioshiny</strong>, so it is available to anyone running a science mapping analysis today.</p>
+
+                    <p>A great achievement, reached together with Massimo Aria and Maria Spano, with the same enthusiasm and effort that has always brought us to new contributions for all the research communities.</p>
+
+                    <div class="article-callout">
+                        <p class="cite"><strong>Cite:</strong> Aria, M., D'Aniello, L., &amp; Spano, M. (2026). A multi-phase reference matching algorithm for bibliometric analysis: design, implementation, and evaluation. <em>Scientometrics</em>. DOI: 10.1007/s11192-026-05763-2</p>
+                    </div>
+
+                    <div class="article-actions">
+                        <a href="https://link.springer.com/article/10.1007/s11192-026-05763-2" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Read the paper</a>
+                        <a href="https://www.bibliometrix.org" target="_blank" rel="noopener" class="btn btn-outline"><i class="fas fa-globe"></i> bibliometrix.org</a>
+                        <a href="../../software.html" class="btn btn-outline"><i class="fas fa-cube"></i> Software page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-name">Luca D'Aniello</p>
+                <p class="footer-sub">Assistant Professor (RTD-A) · University of Naples Federico II<br>
+                <a href="mailto:luca.daniello@unina.it">luca.daniello@unina.it</a></p>
+                <p class="footer-copy">&copy; <span class="year"></span> Luca D'Aniello</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>

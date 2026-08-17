@@ -2272,6 +2272,11 @@ ul { list-style: none; }
     border: none;
     border-radius: 0;
 }
+.article-fig.portrait-fig img {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 18px;
+}
 
 /* ── Publication controls (filters + search + year) ───────── */
 .pub-controls {
@@ -2371,6 +2376,7 @@ ul { list-style: none; }
 /* ── Cover type tags (Paper / Award / Talk …) ─────────────── */
 .news-cover-tag.tag-paper, .blog-cover-tag.tag-paper { background: rgba(37,99,235,.88); }
 .news-cover-tag.tag-award, .blog-cover-tag.tag-award { background: rgba(217,119,6,.92); }
+.news-cover-tag.tag-milestone, .blog-cover-tag.tag-milestone { background: rgba(109,40,217,.9); }
 .news-cover-tag.tag-talk,  .blog-cover-tag.tag-talk  { background: rgba(8,145,178,.9); }
 
 /* ── Mobile: restore hero photo ───────────────────────────── */
