@@ -44,8 +44,9 @@
         <div class="container">
             <div class="stats-row reveal-up">
                 <div class="stats-block">
-                    <span class="stat-num" data-target="29">0</span>
+                    <span class="stat-num" data-target="0" data-count-pubs>0</span>
                     <span class="stat-label">Total Publications</span>
+                    <span class="stat-sub" data-pubs-breakdown></span>
                 </div>
                 <div class="stats-sep"></div>
                 <div class="stats-block">
@@ -168,7 +169,7 @@
             <p class="pub-empty" id="pubEmpty"><i class="fas fa-circle-info"></i> No publications match your filters.</p>
 
             <!-- Scientific Articles -->
-            <div class="subsection">
+            <div class="subsection" data-pub-group="journal">
                 <div class="subsection-header reveal-up">
                     <h3 class="subsection-title">Scientific Articles</h3>
                 </div>
@@ -549,7 +550,7 @@
             </div>
 
             <!-- Books -->
-            <div class="subsection">
+            <div class="subsection" data-pub-group="book">
                 <div class="subsection-header reveal-up">
                     <h3 class="subsection-title">Books &amp; Monographs</h3>
                 </div>
@@ -579,7 +580,7 @@
             </div>
 
             <!-- Conference Proceedings -->
-            <div class="subsection">
+            <div class="subsection" data-pub-group="conference">
                 <div class="subsection-header reveal-up">
                     <h3 class="subsection-title">Conference Proceedings</h3>
                 </div>
@@ -749,7 +750,7 @@
             </div>
 
             <!-- Working Papers & Preprints -->
-            <div class="subsection">
+            <div class="subsection" data-pub-group="preprint">
                 <div class="subsection-header reveal-up">
                     <h3 class="subsection-title">Working Papers &amp; Preprints</h3>
                 </div>

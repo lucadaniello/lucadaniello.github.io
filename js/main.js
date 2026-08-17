@@ -62,6 +62,37 @@ function animateCounter(el, target, duration = 1800) {
     requestAnimationFrame(step);
 }
 
+/* ── Publication totals, counted from the list on the page ──
+   Keeps the banner in sync with the entries below it. Pre-prints
+   are deliberately excluded from the total.                    */
+(function initPubCounts() {
+    const totalEl = document.querySelector('[data-count-pubs]');
+    if (!totalEl) return;
+
+    const groups = [
+        ['journal',    'article',     'articles'],
+        ['book',       'book',        'books'],
+        ['conference', 'proceeding',  'proceedings']
+    ];
+
+    let total = 0;
+    const parts = [];
+
+    groups.forEach(([group, singular, plural]) => {
+        const section = document.querySelector(`.subsection[data-pub-group="${group}"]`);
+        if (!section) return;
+        const n = section.querySelectorAll('.pub-card').length;
+        if (!n) return;
+        total += n;
+        parts.push(`${n} ${n === 1 ? singular : plural}`);
+    });
+
+    totalEl.dataset.target = total;
+
+    const breakdownEl = document.querySelector('[data-pubs-breakdown]');
+    if (breakdownEl) breakdownEl.textContent = parts.join(' · ');
+})();
+
 const counterEls = document.querySelectorAll('.stat-num[data-target]');
 const counterObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {

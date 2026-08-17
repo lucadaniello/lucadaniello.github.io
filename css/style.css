@@ -1316,10 +1316,12 @@ ul { list-style: none; }
     margin-top: 4px;
 }
 .stats-block .stat-sub {
-    font-size: .7rem;
-    color: rgba(255,255,255,.3);
-    margin-top: 2px;
+    font-size: .72rem;
+    color: rgba(255,255,255,.42);
+    margin-top: 6px;
+    text-align: center;
 }
+.stats-block .stat-sub:empty { display: none; }
 .stats-sep {
     width: 1px;
     height: 50px;
