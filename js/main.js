@@ -454,6 +454,44 @@ if (researchTabs.length) {
     searchInput.addEventListener('input', apply);
 })();
 
+/* ── Blog: filter posts by type ───────────────────────────── */
+(function initBlogFilters() {
+    const bar = document.getElementById('blogFilters');
+    const list = document.querySelector('.blog-list');
+    if (!bar || !list) return;
+
+    const posts = [...list.querySelectorAll('.blog-post')];
+    const empty = document.getElementById('blogEmpty');
+    const buttons = [...bar.querySelectorAll('[data-filter]')];
+
+    /* Drop any filter that has no posts behind it. */
+    const present = new Set(posts.map(post => post.dataset.type));
+    buttons.forEach(btn => {
+        const type = btn.dataset.filter;
+        if (type !== 'all' && !present.has(type)) btn.remove();
+    });
+
+    function apply(type) {
+        let shown = 0;
+        posts.forEach(post => {
+            const match = type === 'all' || post.dataset.type === type;
+            post.classList.toggle('is-hidden', !match);
+            /* A post revealed by filtering may never have crossed the
+               scroll observer, so make sure it is not left faded out. */
+            if (match) { post.classList.add('visible'); shown++; }
+        });
+        if (empty) empty.style.display = shown ? 'none' : 'block';
+    }
+
+    bar.addEventListener('click', e => {
+        const btn = e.target.closest('[data-filter]');
+        if (!btn) return;
+        bar.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        apply(btn.dataset.filter);
+    });
+})();
+
 /* ── Latest News: paged carousel, four cards per page ────────
    Cards are authored as a plain list in the HTML; this groups
    them into pages and cycles through them.                    */

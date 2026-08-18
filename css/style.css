@@ -31,7 +31,7 @@
     --radius-sm:   8px;
     --transition:  .25s ease;
 
-    --section-pad: 100px;
+    --section-pad: 68px;
     --container:   1140px;
     --nav-h:       70px;
 }
@@ -442,7 +442,7 @@ ul { list-style: none; }
     background: var(--off-white);
 }
 .section-header {
-    margin-bottom: 56px;
+    margin-bottom: 32px;
 }
 .section-tag {
     display: inline-block;
@@ -551,14 +551,14 @@ ul { list-style: none; }
 }
 
 /* ── Subsection ───────────────────────────────────────────── */
-.subsection { margin-bottom: 72px; }
+.subsection { margin-bottom: 52px; }
 .subsection:last-child { margin-bottom: 0; }
 .subsection-header {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     gap: 16px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     border-bottom: 2px solid var(--border);
     padding-bottom: 14px;
 }
@@ -1074,7 +1074,7 @@ ul { list-style: none; }
 .inner-page body { padding-top: var(--nav-h); }
 .page-header {
     background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 100%);
-    padding: 64px 0 52px;
+    padding: 44px 0 36px;
     position: relative;
     overflow: hidden;
     margin-top: var(--nav-h);
@@ -1785,7 +1785,7 @@ ul { list-style: none; }
 
 @media (max-width: 768px) {
     :root {
-        --section-pad: 64px;
+        --section-pad: 48px;
     }
     .nav-links { display: none; }
     .nav-links.open {
@@ -2098,12 +2098,28 @@ ul { list-style: none; }
 .news-card:hover .news-more { gap: 9px; }
 
 /* ── Blog listing (blog.html) ─────────────────────────────── */
+.blog-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 900px;
+    margin-bottom: 28px;
+}
+.blog-empty {
+    max-width: 900px;
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-muted);
+    font-size: .9rem;
+    display: none;
+}
 .blog-list {
     display: flex;
     flex-direction: column;
     gap: 28px;
     max-width: 900px;
 }
+.blog-post.is-hidden { display: none; }
 .blog-post {
     display: grid;
     grid-template-columns: 300px 1fr;

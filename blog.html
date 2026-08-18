@@ -41,9 +41,17 @@
 
     <section class="section">
         <div class="container">
+            <div class="blog-filters reveal-up" id="blogFilters">
+                <button class="pub-filter active" data-filter="all">All</button>
+                <button class="pub-filter" data-filter="paper">Papers</button>
+                <button class="pub-filter" data-filter="award">Awards</button>
+                <button class="pub-filter" data-filter="milestone">Milestones</button>
+            </div>
+            <p class="blog-empty" id="blogEmpty"><i class="fas fa-circle-info"></i> No posts in this category yet.</p>
+
             <div class="blog-list">
 
-                <article class="blog-post reveal-up">
+                <article class="blog-post reveal-up" data-type="paper">
                     <div class="blog-cover cover-doc">
                         <span class="blog-cover-tag tag-paper">Paper</span>
                         <img src="assets/blog/refmatch-cover.png" alt="A multi-phase reference matching algorithm paper in Scientometrics">
@@ -56,7 +64,7 @@
                     </div>
                 </article>
 
-                <article class="blog-post reveal-up">
+                <article class="blog-post reveal-up" data-type="paper">
                     <div class="blog-cover cover-doc">
                         <span class="blog-cover-tag tag-paper">Paper</span>
                         <img src="assets/blog/themescope-cover.png" alt="ThemeScope paper in Journal of Information Science">
@@ -69,7 +77,7 @@
                     </div>
                 </article>
 
-                <article class="blog-post reveal-up">
+                <article class="blog-post reveal-up" data-type="award">
                     <div class="blog-cover cover-photo">
                         <span class="blog-cover-tag tag-award">Award</span>
                         <img src="assets/blog/jadt-award.png" alt="VADISTAT – Per Simona Balbi Young Award certificate">
@@ -82,7 +90,7 @@
                     </div>
                 </article>
 
-                <article class="blog-post reveal-up">
+                <article class="blog-post reveal-up" data-type="milestone">
                     <div class="blog-cover cover-doc">
                         <span class="blog-cover-tag tag-milestone">Milestone</span>
                         <img src="assets/blog/asn-cover.png" alt="Certificate of the National Scientific Qualification as Associate Professor">
@@ -95,7 +103,7 @@
                     </div>
                 </article>
 
-                <article class="blog-post reveal-up">
+                <article class="blog-post reveal-up" data-type="paper">
                     <div class="blog-cover cover-doc">
                         <span class="blog-cover-tag tag-paper">Paper</span>
                         <img src="assets/blog/biblioshiny-cover.png" alt="Biblioshiny and the SAAS Workflow paper in Journal of Informetrics">
@@ -108,7 +116,7 @@
                     </div>
                 </article>
 
-                <article class="blog-post reveal-up">
+                <article class="blog-post reveal-up" data-type="paper">
                     <div class="blog-cover cover-doc">
                         <span class="blog-cover-tag tag-paper">Paper</span>
                         <img src="assets/blog/tall-cover.png" alt="TALL paper in SoftwareX">
