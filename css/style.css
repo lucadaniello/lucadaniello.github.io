@@ -1316,12 +1316,10 @@ ul { list-style: none; }
     margin-top: 4px;
 }
 .stats-block .stat-sub {
-    font-size: .72rem;
-    color: rgba(255,255,255,.42);
-    margin-top: 6px;
-    text-align: center;
+    font-size: .7rem;
+    color: rgba(255,255,255,.3);
+    margin-top: 2px;
 }
-.stats-block .stat-sub:empty { display: none; }
 .stats-sep {
     width: 1px;
     height: 50px;
@@ -1748,6 +1746,15 @@ ul { list-style: none; }
     margin-top: 16px;
     letter-spacing: .04em;
 }
+.stats-breakdown {
+    text-align: center;
+    font-size: .75rem;
+    color: rgba(255,255,255,.45);
+    margin-top: 18px;
+    letter-spacing: .04em;
+}
+.stats-breakdown:empty { display: none; }
+.stats-breakdown + .stats-source { margin-top: 6px; }
 
 /* Software logos */
 .sf-logo-wrap {
