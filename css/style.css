@@ -1704,6 +1704,7 @@ ul { list-style: none; }
     .stats-row { flex-wrap: wrap; gap: 20px; justify-content: center; }
     .stats-block { padding: 8px 24px; }
     .stats-sep { display: none; }
+    .stats-foot { justify-content: center; text-align: center; padding: 0 24px; }
 }
 
 /* Research in-page tabs */
@@ -1739,22 +1740,28 @@ ul { list-style: none; }
 }
 
 /* Stats source note */
+/* Footer line under the stats: publication breakdown on the left,
+   aligned under the three indicators; metrics date on the right. */
+.stats-foot {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 24px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    padding: 0 40px;
+}
 .stats-source {
-    text-align: center;
     font-size: .7rem;
     color: rgba(255,255,255,.35);
-    margin-top: 16px;
     letter-spacing: .04em;
 }
 .stats-breakdown {
-    text-align: center;
     font-size: .75rem;
     color: rgba(255,255,255,.45);
-    margin-top: 18px;
     letter-spacing: .04em;
 }
 .stats-breakdown:empty { display: none; }
-.stats-breakdown + .stats-source { margin-top: 6px; }
 
 /* Software logos */
 .sf-logo-wrap {

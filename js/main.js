@@ -90,9 +90,7 @@ function animateCounter(el, target, duration = 1800) {
     totalEl.dataset.target = total;
 
     const breakdownEl = document.querySelector('[data-pubs-breakdown]');
-    if (breakdownEl && parts.length) {
-        breakdownEl.textContent = parts.join(' · ') + ' · pre-prints excluded';
-    }
+    if (breakdownEl) breakdownEl.textContent = parts.join(' · ');
 })();
 
 const counterEls = document.querySelectorAll('.stat-num[data-target]');
