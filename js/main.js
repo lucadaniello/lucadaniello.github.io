@@ -454,32 +454,97 @@ if (researchTabs.length) {
     searchInput.addEventListener('input', apply);
 })();
 
-/* ── Latest News: center when few, scroll when they overflow ── */
+/* ── Latest News: paged carousel, four cards per page ────────
+   Cards are authored as a plain list in the HTML; this groups
+   them into pages and cycles through them.                    */
 (function initNewsCarousel() {
     const viewport = document.querySelector('.news-viewport');
     const track    = document.getElementById('newsTrack');
     if (!viewport || !track) return;
 
-    const originals = [...track.children];
+    const cards = [...track.querySelectorAll('.news-card')];
+    if (!cards.length) return;
 
-    function setup() {
-        track.classList.remove('marquee');
-        track.querySelectorAll('[data-clone]').forEach(n => n.remove());
+    const MAX_PER_PAGE = 4;
+    const INTERVAL     = 4000;
+    const GAP          = 18;   // matches .news-page gap
+    const SIDE_PADDING = 48;   // matches .news-page horizontal padding
 
-        // Overflowing → clone the set for a seamless loop and start scrolling
-        if (track.scrollWidth > viewport.clientWidth + 1) {
-            originals.forEach(node => {
-                const clone = node.cloneNode(true);
-                clone.setAttribute('data-clone', '');
-                clone.setAttribute('aria-hidden', 'true');
-                clone.setAttribute('tabindex', '-1');
-                track.appendChild(clone);
-            });
-            track.classList.add('marquee');
-        }
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const dots = document.createElement('div');
+    dots.className = 'news-dots';
+    viewport.after(dots);
+
+    let pages = 1, index = 0, timer = null;
+
+    /* How many whole cards fit, capped at four. */
+    function perPage() {
+        const cardWidth = cards[0].getBoundingClientRect().width || 300;
+        const available = viewport.clientWidth - SIDE_PADDING;
+        const fit = Math.floor((available + GAP) / (cardWidth + GAP));
+        return Math.max(1, Math.min(MAX_PER_PAGE, fit));
     }
 
-    setup();
-    let t;
-    window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(setup, 200); });
+    function go(i) {
+        index = (i % pages + pages) % pages;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.querySelectorAll('.news-dot').forEach((dot, n) => {
+            dot.classList.toggle('active', n === index);
+            dot.setAttribute('aria-selected', n === index ? 'true' : 'false');
+        });
+    }
+
+    function stop() { clearInterval(timer); timer = null; }
+    function play() {
+        stop();
+        if (pages > 1 && !reduceMotion) timer = setInterval(() => go(index + 1), INTERVAL);
+    }
+
+    function build() {
+        const size = perPage();
+        pages = Math.ceil(cards.length / size);
+
+        track.querySelectorAll('.news-page').forEach(page => page.remove());
+        for (let i = 0; i < pages; i++) {
+            const page = document.createElement('div');
+            page.className = 'news-page';
+            cards.slice(i * size, (i + 1) * size).forEach(card => page.appendChild(card));
+            track.appendChild(page);
+        }
+
+        dots.innerHTML = '';
+        if (pages > 1) {
+            for (let i = 0; i < pages; i++) {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'news-dot';
+                dot.setAttribute('role', 'tab');
+                dot.setAttribute('aria-label', `Show news page ${i + 1} of ${pages}`);
+                dot.addEventListener('click', () => { go(i); play(); });
+                dots.appendChild(dot);
+            }
+            dots.setAttribute('role', 'tablist');
+        }
+
+        go(Math.min(index, pages - 1));
+        play();
+    }
+
+    build();
+
+    /* Hold still while the visitor is reading or tabbing through. */
+    viewport.addEventListener('mouseenter', stop);
+    viewport.addEventListener('mouseleave', play);
+    viewport.addEventListener('focusin', stop);
+    viewport.addEventListener('focusout', play);
+    document.addEventListener('visibilitychange', () => {
+        document.hidden ? stop() : play();
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(build, 200);
+    });
 })();
