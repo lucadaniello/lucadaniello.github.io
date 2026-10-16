@@ -1,0 +1,4 @@
+# GitHub Pages: keep the maintenance files out of the published site
+exclude:
+  - CLAUDE.md
+  - tools/
